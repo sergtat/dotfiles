@@ -1,0 +1,30 @@
+! Settings
+URxvt*buffered:               true            ! double buffer for xtf
+URxvt*hold:                   false           ! kill window on shell exit
+URxvt*loginShell:             true            ! to load shell profiles
+URxvt*print-pipe:             cat > $HOME/tmp/$(echo urxvt.dump.$(date +'%s'))
+URxvt*saveLines:              9999            ! non-tmux window scroll back
+! Text
+URxvt*colorUL:                yellow
+URxvt*font:                   xft:Inconsolata-dz:size=12
+URxvt*internalBorder:         6               ! pixels from frame edge
+! URxvt*letterSpace:            -1              ! xft adjustment (for vanilla urxvt)
+URxvt*lineSpace:              4               ! pixels between lines for added readability
+URxvt*underlineColor:         yellow
+! UI
+URxvt*fading:                 30              ! % brightness reduction on focus loss
+URxvt*mapAlert:               true            ! de-iconify on bell alert
+URxvt*scrollBar:              false           ! maximize usable line width
+URxvt*shading:                40              ! darken background transparency 60%
+URxvt*transparent:            true
+URxvt*visualBell:             true            ! blink window on bell
+! Scrolling
+URxvt*scrollTtyKeypress:      true            ! scroll to bottom on keypress
+URxvt*scrollTtyOutput:        false           ! do not scroll to bottom on output
+URxvt*scrollWithBuffer:       false           ! do not use scrollback buffer
+URxvt*skipScroll:             true            ! favour scroll speed over listing all lines
+! Enable left mouse click url launcher
+URxvt*matcher.button:         1
+URxvt*perl-ext:
+URxvt*perl-ext-common:        default,matcher
+URxvt*url-launcher:           luakit

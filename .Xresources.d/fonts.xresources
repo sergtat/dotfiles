@@ -1,0 +1,7 @@
+*.shading: 25
+*.font: xft:Terminess Powerline:style=Regular:pixelsize=18
+*.boldFont: xft:Terminess Powerline:style=Bold:pixelsize=18
+*.italicFont: xft:Ubuntu Mono derivative Powerline:style=Italic:pixelsize=18
+*.boldItalicFont: xft:Ubuntu Mono derivative Powerline:style=Bold Italic:pixelsize=18
+*.font-size.step: 4
+

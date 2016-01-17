@@ -1,0 +1,20 @@
+#!/bin/sh
+fbsetbg -C ~/Docs/backgrounds/Fluxbox-logo.png
+xmodmap "/home/serg/.Xmodmap"
+play ~/Docs/sounds/desktop-login.ogg &
+lxpanelx &
+numlockx &
+unclutter -idle 2 &
+parcellite &
+xbindkeys &
+fbsetbg -f ~/Docs/backgrounds/default.jpg
+idesk &
+conky &
+udiskie --tray &
+~/bin/urxvt-run.sh &
+~/bin/firefox &
+# keepassx &
+#goldendict &
+#sdcv &
+# ~/bin/mail.ru.cloud &
+exec /usr/bin/fluxbox -log "/home/serg/.fluxbox/log"

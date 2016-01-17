@@ -1,0 +1,9 @@
+.*
+!.gitignore
+*~
+/bin/
+/tmp/
+/bundle/
+node_modules/
+
+

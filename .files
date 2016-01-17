@@ -1,0 +1,17 @@
+backup
+bin
+.config
+.fluxbox
+.grc
+.sh
+.ssh
+.vim
+.zkbd
+.XCompose
+.Xmodmap
+.Xresources
+.conkyrc
+.tmux
+.vimperatorrc
+.vimperatorrc.local
+.zshrc

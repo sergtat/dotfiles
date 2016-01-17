@@ -1,0 +1,3 @@
+# HASH
+hash -d wiki="$HOME/repo/wiki/pages/"
+hash -d iwiki="$HOME/repo/wiki/images/"

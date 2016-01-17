@@ -1,0 +1,21 @@
+[ -z "$HOSTNAME" ] && export HOSTNAME=`uname -n`
+[ -z "$DOMAINNAME" ] && export HOSTNAME=`domainname -d`
+export WINEARCH="win32"
+export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
+export NODE_PATH=/usr/include/node:/usr/lib64/node_modules
+export EDITOR="/usr/bin/vim"
+export MAILCHECK=60
+export MAILPATH="$HOME/.mail/new?'You have new mail!'"
+export MAILDIR="$HOME/.mail"
+export DE=gnome
+#if [ $(ls $HOME/.ssh/id_*.pub) ]
+#then
+  #for i in $HOME/.ssh/id_*.pub
+  #do
+    #PUBKEY=$(basename $i)
+    #KEY+="${PUBKEY%.pub} "
+    #ID_KEYS+=${KEY}
+  #done
+#fi
+#/usr/bin/keychain ~/.ssh/${ID_KEYS}
+#[ -f $HOME/.keychain/$HOSTNAME-sh-gpg ] && . $HOME/.keychain/$HOSTNAME-sh-gpg # для GPG-ключей

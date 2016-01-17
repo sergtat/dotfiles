@@ -1,0 +1,5 @@
+! Установка изображения на полный экран
+background: fullscreen
+
+! Установка пути к изображению фона рабочего стола
+background.pixmap: ~/Docs/backgrounds/default.jpg

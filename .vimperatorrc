@@ -1,0 +1,29 @@
+"3.10.1 (created: 2015/08/25 00:41:59)
+
+map ; :
+map <BS> :back<Return>
+map <S-BS> :fw<Return>
+map <C-Left> gT
+map <C-Right> gt
+map <C-f> /
+map <C-а> /
+map ж :
+map Ж :
+map <Esc> :stop<Return>
+nmap ,f :tabopen<Space>https://feedly.com/#my<Return>
+nmap ,g :tabopen<Space>https://mail.google.com/mail/u/0/<Return>
+nmap ,p :tabopen<Space>https://getpocket.com/a/queue/list/<Return>
+nmap ,r :tabopen<Space>https://www.readability.com/reading-list<Return>
+nmap ,s :tabopen<Space>https://online.sberbank.ru/CSAFront/index.do<Return>
+nmap ,t :tabopen<Space>http://translate.google.ru/<Return>
+nmap ,w :tabopen<Space>http://localhost:5000/pages/<Return>
+nmap З P
+nmap з p
+nmap в d
+nmap г u
+nmap е t
+noremap ,, :nohlsearch<Return>
+set complete=Sls
+source! /home/serg/.vimperatorrc.local
+
+" vim: set ft=vimperator:
