@@ -38,7 +38,7 @@ bin/*
 .Xmodmap
 .Xresources
 .conkyrc
-.tmux
+.tmux.conf
 .vimperatorrc
 .vimperatorrc.local
 .zshrc
