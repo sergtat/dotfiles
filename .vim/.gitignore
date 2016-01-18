@@ -1,6 +1,8 @@
 .*
 !.gitignore
 *~
+*.old
+*.orig
 /bin/
 /tmp/
 /bundle/
