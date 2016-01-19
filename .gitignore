@@ -2,6 +2,3 @@
 *.old
 *.bak
 =*
-.mutt/cache
-.mutt/mailbox
-.mutt/sig
