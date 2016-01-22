@@ -1,31 +1,20 @@
-#export PATH=${HOME}/bin:$PATH
-#export LANG=ru_RU.UTF-8
-#export LC_CTYPE=ru_RU.UTF-8
-
 setopt APPEND_HISTORY HIST_IGNORE_ALL_DUPS HIST_IGNORE_SPACE HIST_REDUCE_BLANKS
 unsetopt correct_all
 
 # Setting in oh-my-zsh.
 # Share history between shells.
 setopt share_history
-
 # Ignore duplicity commands in history.
 setopt hist_ignore_all_dups
-
 # Don't save in history commands, beginning with space.
 setopt hist_ignore_space
-
 # Don't save command «history» or «fc» in history.
 setopt hist_no_store
-
 # Bash-like '='
 setopt no_equals
-
 # Warning if Mailbox not empty
 setopt mailwarning
 ### Forcing the rehash
-#_force_rehash() { (( CURRENT == 1 )) && rehash; return 1 }
-#zstyle ‘:completion:::::’ completer _oldlist _expand _force_rehash _complete
 zstyle ':completion:*' rehash true
 
 # Color man pages

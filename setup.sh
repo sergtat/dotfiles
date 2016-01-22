@@ -27,7 +27,7 @@ FN="$(cat $@)"
 for i in $FN
 do 
 	cecho "copy ${i}"
-	cp -u ${src}/${i} ${dst}
+	cp -u ${src}/${i} ${dst}${i}
 	[[ $? ]] && cecho OK $Green || echo "copy ${i} ...Error" $Red
 done
 IFS=$o
