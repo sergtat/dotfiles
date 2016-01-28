@@ -16,7 +16,7 @@ nmap ,p :tabopen<Space>https://getpocket.com/a/queue/list/<Return>
 nmap ,r :tabopen<Space>https://www.readability.com/reading-list<Return>
 nmap ,s :tabopen<Space>https://online.sberbank.ru/CSAFront/index.do<Return>
 nmap ,t :tabopen<Space>http://translate.google.ru/<Return>
-nmap ,w :tabopen<Space>http://localhost:5000/pages/<Return>
+nmap ,w :tabopen<Space>http://localhost:5000/<Return>
 nmap З P
 nmap з p
 nmap в d
