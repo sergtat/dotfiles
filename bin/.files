@@ -1,0 +1,10 @@
+backup
+bin/colormap
+.config/mc/*
+.ssh/*
+.grc
+.sh
+.vim
+.zkbd
+.tmux.conf
+.zshrc
