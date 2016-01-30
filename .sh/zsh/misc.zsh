@@ -1,14 +1,3 @@
-# nocorrect
-setopt correct_all
-alias vim='nocorrect vim'
-alias man='nocorrect man'
-alias mv='nocorrect mv'
-alias mysql='nocorrect mysql'
-alias mkdir='nocorrect mkdir'
-alias gist='nocorrect gist'
-alias heroku='nocorrect heroku'
-alias ebuild='nocorrect ebuild'
-alias hpodder='nocorrect hpodder'
 # GLOBAL
 alias -g H='-h'
 alias -g HL='--help'
@@ -20,8 +9,6 @@ alias -g G='|grep -i'
 alias -g TF='&& echo True || echo False'
 # GNU
 alias ls='ls --color=force'
-alias ll='ls -l'
-alias la='ls -la'
 alias grep='grep -s'
 alias igrep='grep -i'
 alias rgrep='grep -r'

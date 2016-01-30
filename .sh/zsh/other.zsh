@@ -83,3 +83,6 @@ help(){
   bash -c "help $1"
 }
 
+true () { printf "%-${w}s" "true"; }
+false () { [[ $? == 1 ]] && printf "%-${w}s" "false " || printf "%-${w}s" "-err- "; }
+

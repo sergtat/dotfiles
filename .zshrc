@@ -27,7 +27,7 @@ export ZSH=$HOME/.oh-my-zsh
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # COMPLETION_WAITING_DOTS="true"
@@ -44,7 +44,7 @@ export ZSH=$HOME/.oh-my-zsh
 
 # Would you like to use another custom folder than $ZSH/custom?
 ZSH_CUSTOM='$HOME/.dotfiles/.sh/zsh'
-
+ZSH_CACHE_DIR='$HOME/.dotfiles/.sh/cache/'
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
