@@ -25,14 +25,13 @@ unset name
 readfile() {
 local o=$IFS
 IFS=$(echo -en "\n\b")
-FN="$(cat $1)"
-for i in $FN
+local fn="$(cat $1)"
+for i in $fn
 do
-echo ${i}
-	for f in ${src}/${i}
-	do
-		echo ${f##$src/}
-	done
+	local dir=${i%/*}
+	local name=${i##*/}
+	[ -z $dir ] && echo  "ln -sf ${src}/${name} ${dst}/${name} "
+	unset dir name
 done
 IFS=$o
 }

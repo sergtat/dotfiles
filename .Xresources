@@ -3,8 +3,8 @@
 !colorBD =
 !colorUL =
 
-#include ".dotfiles/.Xresources.d/gruvbox-dark.xresources"
-#include ".dotfiles/.Xresources.d/fonts.xresources"
+#include "repo/dotfiles/.Xresources.d/gruvbox-dark.xresources"
+#include "repo/dotfiles/.Xresources.d/fonts.xresources"
 
 XTerm*termName: xterm-256color
 URxvt*termName: rxvt-unicode-256color
@@ -16,8 +16,8 @@ URxvt.geometry: 150x50
 URxvt*scrollBar: false
 URxvt*saveLines: 5000
 
-! urxvt будет искать скрипты сначала в этой директории, потом в /usr/lib/urxvt/perl
-!URxvt.perl-lib: /home/serg/.config/urxvt/perl/
+!urxvt будет искать скрипты сначала в этой директории, потом в /usr/lib/urxvt/perl
+URxvt.perl-lib: /home/serg/repo/dotfiles/.urxvt/ext/
 
 ! Clickable urls, url-select without mouse, tabs
 !URxvt.perl-ext-common:  default,matcher,url-select,tabbedex,keyboard-select

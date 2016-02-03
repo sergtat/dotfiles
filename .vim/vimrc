@@ -75,6 +75,7 @@ NeoBundle 'morhetz/gruvbox'
 " }}}
 " bling/vim-airline {{{
 NeoBundle 'bling/vim-airline'
+NeoBundle 'vim-airline/vim-airline-themes'
 " }}}
 " lyokha/vim-xkbswitch {{{
 NeoBundle 'lyokha/vim-xkbswitch'
