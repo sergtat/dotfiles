@@ -21,3 +21,4 @@
 *.tgz binary
 *.bz2 binary
 *.tbz binary
+*.dat binary

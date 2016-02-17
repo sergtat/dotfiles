@@ -4,4 +4,3 @@
 *.italicFont: xft:Ubuntu Mono derivative Powerline:style=Italic:pixelsize=18
 *.boldItalicFont: xft:Ubuntu Mono derivative Powerline:style=Bold Italic:pixelsize=18
 *.font-size.step: 4
-
