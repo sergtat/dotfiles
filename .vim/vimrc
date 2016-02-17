@@ -158,7 +158,6 @@ endif
 " Check if all of the plugins are already installed, in other case ask if we
 " want to install them (useful to add plugins in the .vimrc)
 NeoBundleCheck
-NeoBundleClean
 NeoBundleClearCache
 " }}}
 " END NEOBUNDLE }}}
@@ -265,6 +264,9 @@ let g:AutoPairsFlyMode = 1
 " }}}
 " investigate.vim {{{
 nnoremap <F1> :call investigate#Investigate()<CR>
+" }}}
+" tpope/vim-commentary {{{
+set commentstring=#%s
 " }}}
 " switch yes/no {{{
 let g:switch_mapping = "-"

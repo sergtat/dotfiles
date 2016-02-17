@@ -1,4 +1,4 @@
-"3.10.1 (created: 2015/08/25 00:41:59)
+"3.11.3 (created: 2016/01/30 14:42:44)
 
 map ; :
 map <BS> :back<Return>
@@ -22,6 +22,8 @@ nmap з p
 nmap в d
 nmap г u
 nmap е t
+nmap ,wr :tabopen<Space>http://wiki.loc/<Return>
+nmap ,wl :tabopen<Space>http://wiki.lin.loc/<Return>
 noremap ,, :nohlsearch<Return>
 set complete=Sls
 source! /home/serg/.vimperatorrc.local
