@@ -35,12 +35,12 @@
     Load $alignr $loadavg
 
     Hostname $alignr $nodename
-    eth0: $alignr ${addr eth0}
+    enp0s10: $alignr ${addr enp0s10}
 
-    Inbound $alignr ${downspeed eth0} kb/s
-    ${downspeedgraph eth0}
-    Outbound $alignr ${upspeed eth0} kb/s
-    ${upspeedgraph eth0}
+    Inbound $alignr ${downspeed enp0s10} kb/s
+    ${downspeedgraph enp0s10}
+    Outbound $alignr ${upspeed enp0s10} kb/s
+    ${upspeedgraph enp0s10}
 
     $processes processes ($running_processes running)
 

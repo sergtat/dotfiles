@@ -5,7 +5,8 @@ export ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-[[ ! $TERM = 'linux' ]] && ZSH_THEME="agnoster" || ZSH_THEME="gentoo"
+# [[ ! $TERM = 'linux' ]] && ZSH_THEME="agnoster" || ZSH_THEME="gentoo"
+[[ ! $TERM = 'linux' ]] && ZSH_THEME="wezm+" || ZSH_THEME="gentoo"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -43,8 +44,8 @@ ENABLE_CORRECTION="true"
 # HIST_STAMPS="mm/dd/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
-ZSH_CUSTOM='$HOME/.dotfiles/.sh/zsh'
-ZSH_CACHE_DIR='$HOME/.dotfiles/.sh/cache/'
+ZSH_CUSTOM="$HOME/.dotfiles/.sh/zsh"
+ZSH_CACHE_DIR="$HOME/.dotfiles/.sh/cache/"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)

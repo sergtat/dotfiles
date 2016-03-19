@@ -1,4 +1,4 @@
-"3.11.3 (created: 2016/01/30 14:42:44)
+"3.12.0 (created: 2016/02/28 22:07:56)
 
 map ; :
 map <BS> :back<Return>
@@ -26,6 +26,7 @@ nmap ,wr :tabopen<Space>http://wiki.loc/<Return>
 nmap ,wl :tabopen<Space>http://wiki.lin.loc/<Return>
 noremap ,, :nohlsearch<Return>
 set complete=Sls
+set titlestring=
 source! /home/serg/.vimperatorrc.local
 
 " vim: set ft=vimperator:
