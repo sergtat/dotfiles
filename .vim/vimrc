@@ -488,6 +488,8 @@ map  <F3> :q<CR>
 map! <F3> <Esc>:q<CR>
 vmap < <gv
 vmap > >gv
+nmap <Enter> i<CR><Esc>
+nmap <Space> i<Space><Esc>
 " Tabs {{{
 map <C-t> :tabnew<CR>
 if &term == "linux"
