@@ -5,7 +5,6 @@ export ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-# [[ ! $TERM = 'linux' ]] && ZSH_THEME="agnoster" || ZSH_THEME="gentoo"
 [[ ! $TERM = 'linux' ]] && ZSH_THEME="wezm+" || ZSH_THEME="gentoo"
 
 # Uncomment the following line to use case-sensitive completion.
@@ -41,16 +40,16 @@ ENABLE_CORRECTION="true"
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
 # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# HIST_STAMPS="mm/dd/yyyy"
+HIST_STAMPS="mm/dd/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
-ZSH_CUSTOM="$HOME/.dotfiles/.sh/zsh"
-ZSH_CACHE_DIR="$HOME/.dotfiles/.sh/cache/"
+ZSH_CUSTOM="$HOME/repo/dotfiles/.sh/zsh"
+ZSH_CACHE_DIR="$HOME/repo/dotfiles/.sh/cache"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(adb git npm tmux z)
 # plugins=(adb coffee cp encode64 git jsontools node npm sudo tmuxinator urltools vi-mode)
 # plugins=(git github gitfast git-flow vundle vi-mode sprunde screen redis-cli npm node extract encode64 urltools history-substring-search)
 

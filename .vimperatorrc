@@ -24,6 +24,7 @@ nmap г u
 nmap е t
 nmap ,wr :tabopen<Space>http://wiki.loc/<Return>
 nmap ,wl :tabopen<Space>http://wiki.lin.loc/<Return>
+nmap ,n :tabopen<Space>https://noface.me/<Return>
 noremap ,, :nohlsearch<Return>
 set complete=Sls
 set titlestring=
