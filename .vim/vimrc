@@ -456,7 +456,7 @@ autocmd FileType markdown :map  <localLeader>- :s@^ *@- @ <Enter> :nohlsearch <E
 autocmd FileType markdown :map  <localLeader>* :s@^ *@* @ <Enter> :nohlsearch <Enter>
 autocmd FileType markdown :map  <localLeader>> :s@^ *@> @ <Enter> :nohlsearch <Enter>
 autocmd FileType markdown :nmap <LocalLeader>== :s@^-@—@<Enter>
-autocmd FileType markdown :map	<localLeader>n :Numbered<CR>
+autocmd FileType markdown :map  <localLeader>n :Numbered<CR>
 
 " }}}
 " }}}
