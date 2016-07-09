@@ -9,7 +9,7 @@
 " NEOBUNDLE {{{ ===============================================================
 " Set compatibilites plugins {{{
 language ru_RU.UTF-8    " Solve some plugins incompatibilities
-set t_Co=256 		" Use 256 colors in vim - some plugins not work without it
+set t_Co=256		" Use 256 colors in vim - some plugins not work without it
 
 if has('vim_starting')
     set nocompatible    " Be iMproved
@@ -131,6 +131,9 @@ NeoBundleLazy 'sergtat/vim-markdown-stuff', { 'autoload' : { 'filetypes' : ['mar
 " NeoBundleLazy 'jtratner/vim-flavored-markdown', { 'autoload' : { 'filetypes' : ['markdown'] } }
 " NeoBundleLazy 'vim-pandoc/vim-pandoc-syntax', { 'autoload' : { 'filetypes' : ['markdown'] } }
 " NeoBundleLazy 'mikewest/vim-markdown', { 'autoload' : { 'filetypes' : ['markdown'] } }
+" }}}
+" Coffee {{{
+NeoBundleLazy 'kchmck/vim-coffee-script', { 'autoload' : { 'filetypes' : ['coffee'] } }
 " }}}
 " }}}
 " END BUNDLES }}}
@@ -276,6 +279,27 @@ let g:switch_mapping = "-"
 " let g:markdown_fenced_languages = ['html', 'python', 'bash=sh', 'javascript=js']
 let g:markdown_include_jekyll_support = 0
 let g:markdown_enable_insert_mode_leader_mappings = 1
+" }}}
+" Coffee {{{
+au! BufRead,BufNewFile *.coffee set filetype=coffee
+augroup CoffeeBufNew
+  autocmd User * set wrap
+augroup END
+autocmd BufNewFile,BufReadPost *.coffee setl foldmethod=indent nofoldenable
+autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
+" }}}
+" JSON {{{
+au! BufRead,BufNewFile *.json set filetype=json
+augroup json_autocmd
+  autocmd!
+  autocmd FileType json set autoindent
+  autocmd FileType json set formatoptions=tcq2l
+  autocmd FileType json set textwidth=78 shiftwidth=2
+  autocmd FileType json set softtabstop=2 tabstop=8
+  autocmd FileType json set expandtab
+  autocmd FileType json set conceallevel=0
+  " autocmd FileType json set foldmethod=syntax
+augroup END
 " }}}
 " }}}
 " END PLUGINS Setup }}}
@@ -532,7 +556,7 @@ function! s:cleanBuffers(...) abort
       call add(hidden, bufnr)
     endif
   endfor
-
+  
   let saved = get(g:, 'bufcleaner_max_save', 2) 
   let target = len(hidden) > saved ? join(hidden[0:-saved-1], ' ') : ''
   if !empty(target)
