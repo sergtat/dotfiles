@@ -282,24 +282,9 @@ let g:markdown_enable_insert_mode_leader_mappings = 1
 " }}}
 " Coffee {{{
 au! BufRead,BufNewFile *.coffee set filetype=coffee
-augroup CoffeeBufNew
-  autocmd User * set wrap
-augroup END
-autocmd BufNewFile,BufReadPost *.coffee setl foldmethod=indent nofoldenable
-autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
 " }}}
 " JSON {{{
 au! BufRead,BufNewFile *.json set filetype=json
-augroup json_autocmd
-  autocmd!
-  autocmd FileType json set autoindent
-  autocmd FileType json set formatoptions=tcq2l
-  autocmd FileType json set textwidth=78 shiftwidth=2
-  autocmd FileType json set softtabstop=2 tabstop=8
-  autocmd FileType json set expandtab
-  autocmd FileType json set conceallevel=0
-  " autocmd FileType json set foldmethod=syntax
-augroup END
 " }}}
 " }}}
 " END PLUGINS Setup }}}
@@ -438,8 +423,18 @@ set shiftround
 set noexpandtab
 " }}}
 " set filetypes {{{
+" set formatoptions {{{
 if has("autocmd")
   filetype on
+  autocmd FileType json set autoindent
+  autocmd FileType json set formatoptions=tcq2l
+  autocmd FileType json set textwidth=78 shiftwidth=2
+  autocmd FileType json set softtabstop=2 tabstop=8
+  autocmd FileType json set expandtab
+  autocmd FileType json set conceallevel=0
+  autocmd FileType json set foldmethod=syntax nofoldenable
+  autocmd BufNewFile,BufReadPost *.coffee setl foldmethod=indent nofoldenable
+  autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
   autocmd FileType php setlocal ts=4 sts=4 sw=4 noet
   autocmd FileType python setlocal ts=4 sts=4 sw=4 et
   autocmd FileType javascript setlocal ts=2 sts=2 sw=2 noet
@@ -452,6 +447,7 @@ if has("autocmd")
   autocmd FileType yaml setlocal ts=2 sts=2 sw=2 et
   autocmd FileType markdown setlocal ts=2 sts=2 sw=2 noet wrap
 endif
+" }}}
 " MARKDOWN {{{
 " syn region markdownBoldItalic matchgroup=markdownInlineDelimiter
 "   \ start="\%(\s\|_\|^\)\@<=_\*\*\%(\s\|\*\|$\)\@!" end="\%(\s\|\*\)\@<!\*\*_"
@@ -476,11 +472,11 @@ autocmd FileType markdown :nmap <localLeader>b :s@\(.*\)@**\1**@ <Enter> :nohlse
 autocmd FileType markdown :vmap <localLeader>b :s@\%V\(.*\)\%V@**\1**@ <Enter> :nohlsearch <Enter>
 autocmd FileType markdown :nmap <localLeader>` :s@\(.*\)@```bash\r\1\r```@ <Enter> :nohlsearch <Enter>
 autocmd FileType markdown :vmap <localLeader>` :s@\%V\(.*\)\%V@```bash\r\1\r```@ <Enter> :nohlsearch <Enter>
-autocmd FileType markdown :map  <localLeader>- :s@^ *@- @ <Enter> :nohlsearch <Enter>
-autocmd FileType markdown :map  <localLeader>* :s@^ *@* @ <Enter> :nohlsearch <Enter>
-autocmd FileType markdown :map  <localLeader>> :s@^ *@> @ <Enter> :nohlsearch <Enter>
-autocmd FileType markdown :nmap <LocalLeader>== :s@^-@—@<Enter>
-autocmd FileType markdown :map  <localLeader>n :Numbered<CR>
+autocmd FileType markdown :vmap <localLeader>- :s@^@- @ <CR> :nohlsearch <CR>
+autocmd FileType markdown :vmap <localLeader>> :s@^\s*@> @ <CR> :nohlsearch <CR>
+autocmd FileType markdown :vmap <localLeader>n :s@^@1. @<CR> gv :Numbered<CR> :nohlsearch<CR>
+autocmd FileType markdown :nmap <localLeader>ti ^i![]( ~/repo/sites/wiki/images/Kulinar '')<ESC>
+autocmd FileType markdown :map  <localLeader>di :s@(.*/images@(/images@<CR> :nohlsearch<CR>
 
 " }}}
 " }}}
@@ -495,9 +491,9 @@ let &t_SI .= "\<Esc>[?2004h"
 let &t_EI .= "\<Esc>[?2004l"
 inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
 function! XTermPasteBegin()
-  set pastetoggle=<Esc>[201~
-  set paste
-  return ""
+set pastetoggle=<Esc>[201~
+set paste
+return ""
 endfunction
 " }}}
 " Show hidden chars {{{
@@ -517,11 +513,11 @@ nmap <Space> i<Space><Esc>
 " Tabs {{{
 map <C-t> :tabnew<CR>
 if &term == "linux"
-    nnoremap L gt
-    nnoremap H gT
+nnoremap L gt
+nnoremap H gT
 else
-    nnoremap Oc gt
-    nnoremap Od gT
+nnoremap Oc gt
+nnoremap Od gT
 endif
 " }}}
 " }}}
@@ -530,8 +526,8 @@ map <Leader>vr :tabnew $MYVIMRC<CR>
 map! <Esc><Leader>vr :tabnew $MYVIMRC<CR>
 augroup reload_vimrc
 autocmd!
-    autocmd! BufWritePost $MYVIMRC nested source $MYVIMRC | AirlineRefresh
-    autocmd! BufWritePost *.vim nested source $MYVIMRC | AirlineRefresh
+autocmd! BufWritePost $MYVIMRC nested source $MYVIMRC | AirlineRefresh
+autocmd! BufWritePost *.vim nested source $MYVIMRC | AirlineRefresh
 augroup END
 " }}}
 " My Function {{{
@@ -539,34 +535,34 @@ let g:bufcleaner_max_save = 2
 
 command! -bar -nargs=? CleanBuffers call s:cleanBuffers(<f-args>)
 function! s:cleanBuffers(...) abort
-  let force = a:0 >= 1 && a:1 ==# '-f' ? 1 : 0
-  redir => bufs
-    silent! buffers
-  redir END
+let force = a:0 >= 1 && a:1 ==# '-f' ? 1 : 0
+redir => bufs
+silent! buffers
+redir END
 
-  let hidden = []
-  for buf in map(split(bufs, '\n'), 'split(v:val)')
-    let bufnr = buf[0] + 0
-    let flags = matchstr(join(buf[1:]), '^.*\ze\s\+"')
-    let mod = substitute(flags, '\s*', '', 'g')
-    let hide = mod ==# 'h' || mod ==# 'h+'
-        \ && (force || input(printf("\n%s not saved.\nDelete anyway? [Y]es, (N)o: ",
-          \ bufname(bufnr))) =~? '^y\%[es]$')
-    if hide
-      call add(hidden, bufnr)
-    endif
-  endfor
-  
-  let saved = get(g:, 'bufcleaner_max_save', 2) 
-  let target = len(hidden) > saved ? join(hidden[0:-saved-1], ' ') : ''
-  if !empty(target)
-    silent! execute 'bwipeout!' target
-  endif
+let hidden = []
+for buf in map(split(bufs, '\n'), 'split(v:val)')
+let bufnr = buf[0] + 0
+let flags = matchstr(join(buf[1:]), '^.*\ze\s\+"')
+let mod = substitute(flags, '\s*', '', 'g')
+let hide = mod ==# 'h' || mod ==# 'h+'
+	\ && (force || input(printf("\n%s not saved.\nDelete anyway? [Y]es, (N)o: ",
+		\ bufname(bufnr))) =~? '^y\%[es]$')
+if hide
+	call add(hidden, bufnr)
+endif
+endfor
+
+let saved = get(g:, 'bufcleaner_max_save', 2) 
+let target = len(hidden) > saved ? join(hidden[0:-saved-1], ' ') : ''
+if !empty(target)
+silent! execute 'bwipeout!' target
+endif
 endfunction
 
 augroup buffer-cleaner
-  autocmd!
-  autocmd BufHidden * CleanBuffers
+autocmd!
+autocmd BufHidden * CleanBuffers
 augroup END
 " }}}
 " END VIM SETUP }}}
