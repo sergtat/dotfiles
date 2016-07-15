@@ -472,8 +472,10 @@ autocmd FileType markdown :nmap <localLeader>b :s@\(.*\)@**\1**@ <Enter> :nohlse
 autocmd FileType markdown :vmap <localLeader>b :s@\%V\(.*\)\%V@**\1**@ <Enter> :nohlsearch <Enter>
 autocmd FileType markdown :nmap <localLeader>` :s@\(.*\)@```bash\r\1\r```@ <Enter> :nohlsearch <Enter>
 autocmd FileType markdown :vmap <localLeader>` :s@\%V\(.*\)\%V@```bash\r\1\r```@ <Enter> :nohlsearch <Enter>
-autocmd FileType markdown :vmap <localLeader>- :s@^@- @ <CR> :nohlsearch <CR>
-autocmd FileType markdown :vmap <localLeader>> :s@^\s*@> @ <CR> :nohlsearch <CR>
+autocmd FileType markdown :nmap <localLeader>- :s/^\s*/- / <CR> :nohlsearch <CR>
+autocmd FileType markdown :vmap <localLeader>- :s/^\s*/- / <CR> :nohlsearch <CR>
+autocmd FileType markdown :nmap <localLeader>> :s/^\s*/> / <CR> :nohlsearch <CR>
+autocmd FileType markdown :vmap <localLeader>> :s/^\s*/> / <CR> :nohlsearch <CR>
 autocmd FileType markdown :vmap <localLeader>n :s@^@1. @<CR> gv :Numbered<CR> :nohlsearch<CR>
 autocmd FileType markdown :nmap <localLeader>ti ^i![]( ~/repo/sites/wiki/images/Kulinar '')<ESC>
 autocmd FileType markdown :map  <localLeader>di :s@(.*/images@(/images@<CR> :nohlsearch<CR>
