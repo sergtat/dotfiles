@@ -36,6 +36,7 @@
 
     Hostname $alignr $nodename
     enp0s10: $alignr ${addr enp0s10}
+     wlp1s7: $alignr ${addr enp0s10}
 
     Inbound $alignr ${downspeed enp0s10} kb/s
     ${downspeedgraph enp0s10}
