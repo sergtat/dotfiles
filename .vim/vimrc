@@ -117,7 +117,7 @@ NeoBundle 'sergtat/vim-numbered'
 NeoBundle 'sergtat/increment.vim'
 " }}}
 " godlygeek/tabular {{{
-NeoBundle 'godlygeek/tabular' 
+NeoBundle 'godlygeek/tabular'
 " }}}
 " dhruvasagar/vim-table-mode {{{
 NeoBundle 'dhruvasagar/vim-table-mode'
@@ -251,15 +251,15 @@ let g:XkbSwitchNLayout = 'us'
 " }}}
 " mhinz/vim-startify {{{
 let g:startify_list_order = [
-	\ ['   My most recently used files'],
-	\ 'files',
-	\ ['   My most recently used files in the current directory:'],
-	\ 'dir',
-	\ ['   These are my sessions:'],
-	\ 'sessions',
-	\ ['   These are my bookmarks:'],
-	\ 'bookmarks',
-	\ ]
+  \ ['   My most recently used files'],
+  \ 'files',
+  \ ['   My most recently used files in the current directory:'],
+  \ 'dir',
+  \ ['   These are my sessions:'],
+  \ 'sessions',
+  \ ['   These are my bookmarks:'],
+  \ 'bookmarks',
+  \ ]
 let g:startify_bookmarks = [ {'v': '~/.vim/vimrc'}, {'z': '~/.zshrc'}, {'w': '~/repo/wiki/pages/'}]
 " }}}
 " auto-pairs {{{
@@ -290,6 +290,9 @@ au! BufRead,BufNewFile *.json set filetype=json
 " VIM Setup {{{ ===============================================================
 " Disable Uganda children {{{
 set shortmess+=I
+" }}}
+" Set mouse {{{
+set mouse=a
 " }}}
 " Colorscheme {{{
 set background=dark            " set a dark background
@@ -477,8 +480,10 @@ autocmd FileType markdown :vmap <localLeader>- :s/^\s*/- / <CR> :nohlsearch <CR>
 autocmd FileType markdown :nmap <localLeader>> :s/^\s*/> / <CR> :nohlsearch <CR>
 autocmd FileType markdown :vmap <localLeader>> :s/^\s*/> / <CR> :nohlsearch <CR>
 autocmd FileType markdown :vmap <localLeader>n :s@^@1. @<CR> gv :Numbered<CR> :nohlsearch<CR>
-autocmd FileType markdown :nmap <localLeader>ti ^i![]( ~/repo/sites/wiki/images/Kulinar '')<ESC>
+autocmd FileType markdown :nmap <localLeader>ti ^i![<C-R>%]<LEFT><BS><BS><BS><RIGHT>( ~/repo/sites/nnm_wiki2/public/images/Kulinar '<C-R>%')<LEFT><BS><LEFT><BS><BS><BS><ESC>^/'<CR><LEFT>i/
 autocmd FileType markdown :map  <localLeader>di :s@(.*/images@(/images@<CR> :nohlsearch<CR>
+autocmd FileType markdown :nmap <localLeader>tt o<CR>> Источник: <ESC>
+autocmd FileType markdown :nmap <localLeader>tn ggi# <C-R>%<BS><BS><CR><ESC>
 
 " }}}
 " }}}
@@ -548,14 +553,14 @@ let bufnr = buf[0] + 0
 let flags = matchstr(join(buf[1:]), '^.*\ze\s\+"')
 let mod = substitute(flags, '\s*', '', 'g')
 let hide = mod ==# 'h' || mod ==# 'h+'
-	\ && (force || input(printf("\n%s not saved.\nDelete anyway? [Y]es, (N)o: ",
-		\ bufname(bufnr))) =~? '^y\%[es]$')
+  \ && (force || input(printf("\n%s not saved.\nDelete anyway? [Y]es, (N)o: ",
+  \ bufname(bufnr))) =~? '^y\%[es]$')
 if hide
-	call add(hidden, bufnr)
+  call add(hidden, bufnr)
 endif
 endfor
 
-let saved = get(g:, 'bufcleaner_max_save', 2) 
+let saved = get(g:, 'bufcleaner_max_save', 2)
 let target = len(hidden) > saved ? join(hidden[0:-saved-1], ' ') : ''
 if !empty(target)
 silent! execute 'bwipeout!' target
