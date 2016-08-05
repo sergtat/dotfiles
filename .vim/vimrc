@@ -293,7 +293,7 @@ set shortmess+=I
 " }}}
 " Set mouse {{{
 set mouse=a
-set mousetime=1000
+set mousetime=200
 " }}}
 " Colorscheme {{{
 set background=dark            " set a dark background
