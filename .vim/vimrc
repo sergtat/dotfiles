@@ -461,8 +461,8 @@ endif
 "   \ contains=@markdownInline
 
 autocmd BufRead,BufNewFile *.{md,mdown,mkd,mkdn,markdown,mdwn} set filetype=markdown
-autocmd BufRead,BufNewFile *.md map F5 :! ~/repo/sites/wiki/public/bin/update_bd.sh<CR>
-autocmd BufRead,BufNewFile *.md map F6 :! ~/repo/sites/wiki/public/bin/update.sh<CR>
+autocmd FileType markdown map F5 :! ~/repo/sites/wiki/public/bin/update_bd.sh <CR>
+autocmd FileType markdown map F6 :! ~/repo/sites/wiki/public/bin/update.sh <CR>
 autocmd FileType markdown let maplocalleader='\'
 autocmd FileType markdown :set list | :set nospell
 autocmd FileType markdown let g:table_mode_corner="|"
@@ -474,9 +474,9 @@ autocmd FileType markdown :nmap <localLeader>4 :s@^@#### @ <Enter> :nohlsearch <
 autocmd FileType markdown :nmap <localLeader>5 :s@^@##### @ <Enter> :nohlsearch <Enter>
 autocmd FileType markdown :nmap <localLeader>6 :s@^@###### @ <Enter> :nohlsearch <Enter>
 autocmd FileType markdown :nmap <localLeader>i :s@\(.*\)@_\1_@ <Enter> :nohlsearch <Enter>
-autocmd FileType markdown :vmap <localLeader>i :s@\%V\(.*\)\%V@_\1_@ <Enter> :nohlsearch <Enter>
+autocmd FileType markdown :vmap <localLeader>i :s@\%V\(.*\)\%V@_\1_@ <Enter>
 autocmd FileType markdown :nmap <localLeader>b :s@\(.*\)@**\1**@ <Enter> :nohlsearch <Enter>
-autocmd FileType markdown :vmap <localLeader>b :s@\%V\(.*\)\%V@**\1**@ <Enter> :nohlsearch <Enter>
+autocmd FileType markdown :vmap <localLeader>b :s@\%V\(.*\)\%V@**\1**@ <Enter>
 autocmd FileType markdown :nmap <localLeader>` :s@\(.*\)@```bash\r\1\r```@ <Enter> :nohlsearch <Enter>
 autocmd FileType markdown :vmap <localLeader>` :s@\%V\(.*\)\%V@```bash\r\1\r```@ <Enter> :nohlsearch <Enter>
 autocmd FileType markdown :nmap <localLeader>- :s/^\s*/- / <CR> :nohlsearch <CR>
