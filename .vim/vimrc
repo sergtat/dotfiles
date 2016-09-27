@@ -122,6 +122,9 @@ NeoBundle 'godlygeek/tabular'
 " dhruvasagar/vim-table-mode {{{
 NeoBundle 'dhruvasagar/vim-table-mode'
 " }}}
+" subosito/vim-translator {{{
+NeoBundle 'subosito/vim-translator'
+" }}}
 " Syntax {{{
 " Markdown {{{
 " NeoBundleLazy 'plasticboy/vim-markdown', { 'autoload' : { 'filetypes' : ['markdown'] } }
@@ -273,6 +276,9 @@ set commentstring=#%s
 " }}}
 " switch yes/no {{{
 let g:switch_mapping = "-"
+" }}}
+" vim-translator {{{
+let g:goog_user_conf = {'langpair':'en|ru','cmd':'node','v_key':'T'}
 " }}}
 " Syntax {{{
 " MarkDown {{{
