@@ -492,10 +492,11 @@ autocmd FileType markdown :vmap <localLeader>> :s/^\s*/> / <CR> :nohlsearch <CR>
 autocmd FileType markdown :vmap <localLeader>n :s@^\s*@1. @<CR> gv :Numbered<CR> :nohlsearch<CR>
 autocmd FileType markdown :nmap <localLeader>ti ^i![<C-R>%]<LEFT><BS><BS><BS><RIGHT>( ~/repo/sites/wiki/public/images/Kulinar '<C-R>%')<LEFT><BS><LEFT><BS><BS><BS><ESC>^/'<CR><LEFT>i/
 autocmd FileType markdown :map  <localLeader>di :%s@(.*/images@(/images@<CR> :nohlsearch<CR>
-autocmd FileType markdown :nmap <localLeader>tt o<CR>> Источник: 
+autocmd FileType markdown :nmap <localLeader>tt o<CR>**Источник**: 
 autocmd FileType markdown :nmap <localLeader>tn ggi# <C-R>%<BS><BS><CR><ESC>
 autocmd FileType markdown :vmap <localLeader>` :s@\%V\(.*\)\%V@`\1`@ <Enter> :nohlsearch <Enter>
 autocmd FileType markdown :vmap <localLeader>[ :s@\%V\(.*\)\%V@[\1]()@ <Enter> :nohlsearch <Enter>
+autocmd FileType markdown :nmap <localLeader>tv ^i**Видео**:<CR><CR><div class="youtube" id="" style="width: 560px; height: 315px;"></div><CR><ESC>
 
 " }}}
 " }}}
