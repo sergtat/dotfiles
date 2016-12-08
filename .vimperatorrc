@@ -1,4 +1,4 @@
-"3.12.0 (created: 2016/02/28 22:07:56)
+"3.15.0 (created: 2016/10/05 01:11:26)
 
 map ; :
 map <BS> :back<Return>
@@ -25,8 +25,9 @@ nmap е t
 nmap ,wr :tabopen<Space>http://wiki.loc/<Return>
 nmap ,wl :tabopen<Space>http://wiki.lin.loc/<Return>
 nmap ,n :tabopen<Space>https://noface.me/<Return>
+nmap ,i :tabopen<Space>https://inbox.google.com<Return>
 noremap ,, :nohlsearch<Return>
-set complete=Sls
+set complete=hSs
 set titlestring=
 source! /home/serg/.vimperatorrc.local
 

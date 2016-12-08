@@ -545,6 +545,9 @@ regex/\.([mM][dD])$
 shell/.sdw
 	Open=(libreoffice %f &)
 
+shell/.csv
+	Open=(libreoffice %f &)
+
 # StarOffice 6 and OpenOffice.org formats
 regex/\.(odt|ott|sxw|stw|ods|ots|sxc|stc|odp|otp|sxi|sti|odg|otg|sxd|std|odb|odf|sxm|odm|sxg|rtf)$
 	Open=(libreoffice %f &)
