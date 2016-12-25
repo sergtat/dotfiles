@@ -484,7 +484,7 @@ autocmd FileType markdown :vmap <localLeader>i :s@\%V\(.*\)\%V@_\1_@ <Enter>
 autocmd FileType markdown :nmap <localLeader>b :s@\(.*\)@**\1**@ <Enter> :nohlsearch <Enter>
 autocmd FileType markdown :vmap <localLeader>b :s@\%V\(.*\)\%V@**\1**@ <Enter>
 autocmd FileType markdown :nmap <localLeader>` :s@\(.*\)@```bash\r\1\r```@ <Enter> :nohlsearch <Enter>
-autocmd FileType markdown :vmap <localLeader>` :s@\%V\(.*\)\%V@```bash\r\1\r```@ <Enter> :nohlsearch <Enter>
+autocmd FileType markdown :vmap <localLeader>` :\<,\>s@@`\1`@<Enter>
 autocmd FileType markdown :nmap <localLeader>- :s/^\s*/- / <CR> :nohlsearch <CR>
 autocmd FileType markdown :vmap <localLeader>- :s/^\s*/- / <CR> :nohlsearch <CR>
 autocmd FileType markdown :nmap <localLeader>> :s/^\s*/> / <CR> :nohlsearch <CR>
