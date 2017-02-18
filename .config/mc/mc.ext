@@ -615,7 +615,7 @@ regex/\.(fb2|FB2).zip$
 # torrent
 regex/\.torrent$
 	Open=aria2c %f
-	View=aria2c -S %f
+	View=%view{ascii} aria2c -S %f
 
 # Makefile
 regex/[Mm]akefile$

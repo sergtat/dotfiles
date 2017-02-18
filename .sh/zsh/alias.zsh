@@ -93,3 +93,6 @@ alias urxvt-launcher="urxvt -geometry 80x3 -name 'bashrun' -e sh -c \"/bin/bash 
 alias zshrc="vim ~/.zshrc"
 alias vd='vimdiff'
 alias reload='source ~/.zshrc'
+# Don't define aliases in plain Bourne shell
+[ -n "${BASH_VERSION}${KSH_VERSION}${ZSH_VERSION}" ] || return 0
+alias mc='. /usr/libexec/mc/mc-wrapper.sh'

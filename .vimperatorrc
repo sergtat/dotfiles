@@ -10,12 +10,11 @@ map <C-а> /
 map ж :
 map Ж :
 map <Esc> :stop<Return>
+map т n
 nmap ,f :tabopen<Space>https://feedly.com/#my<Return>
-nmap ,g :tabopen<Space>https://mail.google.com/mail/u/0/<Return>
 nmap ,p :tabopen<Space>https://getpocket.com/a/queue/list/<Return>
 nmap ,r :tabopen<Space>https://www.readability.com/reading-list<Return>
 nmap ,s :tabopen<Space>https://online.sberbank.ru/CSAFront/index.do<Return>
-nmap ,t :tabopen<Space>http://translate.google.ru/<Return>
 nmap ,w :tabopen<Space>http://localhost:5000/<Return>
 nmap З P
 nmap з p
@@ -26,8 +25,13 @@ nmap ,wr :tabopen<Space>http://wiki.loc/<Return>
 nmap ,wl :tabopen<Space>http://wiki.lin.loc/<Return>
 nmap ,n :tabopen<Space>https://noface.me/<Return>
 nmap ,i :tabopen<Space>https://inbox.google.com<Return>
+nmap ,gm :tabopen<Space>https://mail.google.com/mail/u/0/#inbox<Return>
+nmap ,gt :tabopen<Space>https://translate.google.ru/<Return>
+nmap ,gd :tabopen<Space>https://drive.google.com/drive/u/0/my-drive<Return>
+nmap ,gi :tabopen<Space>https://www.google.ru/imghp?hl=ru<Return>
+nmap ,gp :tabopen<Space>https://play.google.com/store?hl=ru&tab=i8<Return>
 noremap ,, :nohlsearch<Return>
-set complete=hSs
+set complete=sSl
 set titlestring=
 source! /home/serg/.vimperatorrc.local
 
