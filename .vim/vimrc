@@ -402,12 +402,15 @@ set fileformats+=mac
 if &history < 1000
   set history=1000
 endif
+
 if &tabpagemax < 50
   set tabpagemax=50
 endif
+
 if !empty(&viminfo)
   set viminfo^=!
 endif
+
 set sessionoptions-=options
 
 " Allow color schemes to do bright colors without forcing bold.
