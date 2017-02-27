@@ -95,16 +95,16 @@ NeoBundle 'tpope/vim-surround'
 " tpope/vim-rsi {{{
 NeoBundle 'tpope/vim-rsi'
 " }}}
+" tpope/vim-commentary {{{
+NeoBundle 'tpope/vim-commentary'
+" NeoBundle 'tomtom/tcomment_vim'
+" NeoBundle 'scrooloose/nerdcommenter'
+" }}}
 " investigate.vim {{{
 NeoBundle 'Keithbsmiley/investigate.vim'
 " }}}
 " vim-visual-increment {{{
 NeoBundle 'triglav/vim-visual-increment'
-" }}}
-" tpope/vim-commentary {{{
-NeoBundle 'tpope/vim-commentary'
-" NeoBundle 'tomtom/tcomment_vim'
-" NeoBundle 'scrooloose/nerdcommenter'
 " }}}
 " AndrewRadev/switch.vim {{{
 " Switch yes/no
