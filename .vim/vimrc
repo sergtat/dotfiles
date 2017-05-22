@@ -276,6 +276,10 @@ set commentstring=#%s
 " }}}
 " switch yes/no {{{
 let g:switch_mapping = "-"
+let g:switch_custom_definitions =
+    \ [
+    \   ['-', '—']
+    \ ]
 " }}}
 " vim-translator {{{
 let g:goog_user_conf = {'langpair':'en|ru','cmd':'node','v_key':'T'}
