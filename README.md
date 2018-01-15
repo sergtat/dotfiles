@@ -1,10 +1,11 @@
-# HOME Dotfiles by sergtat.
+# HOME Dotfiles by sergtat
 
-**Install dotfiles into a new system:**
+_**Install dotfiles into a new system:**_
+
 ```bash
-$ cd
-$ git clone git@github.com:sergtat/dotfiles.git .dotfiles
-$ .dotfiles/setup.sh
-
-`setup.sh` just copy files in $HOME. If you want place file in repo, move wanted files in .dotefiles and make simbolic link out.
+$> cd
+$> git clone git@github.com:sergtat/dotfiles.git .dotfiles
+$> .dotfiles/setup.sh
 ```
+
+`setup.sh` just copy files in $HOME. If you want place file in repo, move wanted files in .dotfiles and make simbolic link out.

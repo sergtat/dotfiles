@@ -1,16 +1,16 @@
-cecho ()                    # Color-echo. Аргумент $1 = текст сообщения. Аргумент $2 = цвет
+cecho ()                  # Color-echo. Аргумент $1 = текст сообщения. Аргумент $2 = цвет
 {
-local nmsg=""	
-message=${1:-$nmsg}			# Текст сообщения по-умолчанию.
-color=${2:-$Color_Off}      # Цвет по-умолчанию черный.
+local nmsg="Lorem Ipsum"
+message=${1:-$nmsg}       # Текст сообщения по-умолчанию.
+color=${2:-$Normal}    # Цвет по-умолчанию черный.
   echo -en "$color"
   echo "$message"
-  tput sgr0                 # Восстановление первоначальных настроек терминала.
+  tput sgr0               # Восстановление первоначальных настроек терминала.
   return
 }
 
 # Reset
-Color_Off='\033[0m'       # Text Reset
+Normal='\033[0m'       # Text Reset
 
 # Regular Colors
 Black='\033[0;30m'        # Black

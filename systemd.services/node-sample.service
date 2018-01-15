@@ -1,0 +1,13 @@
+[Service]
+WorkingDirectory=/var/www/node-hello-world
+ExecStart=/usr/bin/node app.js
+Restart=always
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=node-hello-world
+User=web
+Group=web
+Environment='NODE_ENV=production'
+
+[Install]
+WantedBy=multi-user.target

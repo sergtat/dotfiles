@@ -41,3 +41,14 @@ IFS=$o
 readfile "$src/bin/.files"
 
 unset dst src
+
+# NVIM
+# curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+#     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+# VIM
+# curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+#     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+# check sudo
+# sudo -S -p '' echo -n < /dev/null 2> /dev/null && echo 'Sudo is enabled.' || echo 'Sudo is not enabled'

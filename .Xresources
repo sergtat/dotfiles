@@ -1,20 +1,57 @@
-!cursorColor =
-!cursorColor2 =
-!colorBD =
-!colorUL =
+!------------- COLORS --------------
+! hard contrast: *background: #1d2021
+! soft contrast: *background: #32302f
+*background: #282828
+*foreground: #ebdbb2
+! Black + DarkGrey
+*color0:  #282828
+*color8:  #928374
+! DarkRed + Red
+*color1:  #cc241d
+*color9:  #fb4934
+! DarkGreen + Green
+*color2:  #006400
+*color10: #00ee00
+! DarkYellow + Yellow
+*color3:  #d79921
+*color11: #fabd2f
+! DarkBlue + Blue
+!*color4:  #458588
+*color4:  #2222ff
+*color12: #83a598
+! DarkMagenta + Magenta
+*color5:  #b16286
+*color13: #d3869b
+! DarkCyan + Cyan
+*color6:  #689d6a
+*color14: #8ec07c
+! LightGrey + White
+*color7:  #a89984
+*color15: #ebdbb2
 
-#include "repo/dotfiles/.Xresources.d/gruvbox-dark.xresources"
-#include "repo/dotfiles/.Xresources.d/fonts.xresources"
+!------------- FONTS --------------
+*.shading: 25
+
+*.font: -*-terminesspowerline-medium-*-*-*-18-*-*-*-*-*-*-*
+*.boldfont: -*-terminesspowerline-bold-*-*-*-18-*-*-*-*-*-*-*
+*.italicfont: xft:Ubuntu Mono derivative Powerline:style=Italic:pixelsize=18
+*.boldItalicfont: xft:Ubuntu Mono derivative Powerline:style=Bold Italic:pixelsize=18
+
+*.font-size.step: 2
 
 XTerm*termName: xterm-256color
 URxvt*termName: rxvt-unicode-256color
 
+URxvt.underlineColor:   yellow
+URxvt.geometry:         165x50
+URxvt.loginShell:       false
+URxvt.meta:             ignore
+URxvt.utmpInhibit:      true
+
 !URxvt.colorUL: 4
-URxvt.underlineURLs: true
-URxvt*loginShell: true
-URxvt.geometry: 150x50
-URxvt*scrollBar: false
-URxvt*saveLines: 5000
+URxvt.underlineURLs:    true
+URxvt.scrollBar:        false
+URxvt.saveLines:        8192
 
 !urxvt будет искать скрипты сначала в этой директории, потом в /usr/lib/urxvt/perl
 URxvt.perl-lib: /home/serg/repo/dotfiles/.urxvt/ext/
@@ -61,3 +98,7 @@ URxvt.matcher.pattern.0:  (?:https?:\\/\\/|ftp:\\/\\/|news:\\/\\/|mailto:|file:\
                           \\([a-zA-Z0-9\\x{0410}-\\x{044F}\\-\\@;\\/?:&=%\\$_.+!*\\x27,~#]*\\)| # Allow a pair of matched parentheses\n\
                           [a-zA-Z0-9\\x{0410}-\\x{044F}\\-\\@;\\/?:&=%\\$_+*~]  # exclude some trailing characters (heuristic)\n\
                           )+
+
+! #include "repo/dotfiles/.Xresources.d/gruvbox-dark.xresources"
+! #include "/home/serg/repo/dotfiles/.Xresources.d/fonts.xresources"
+

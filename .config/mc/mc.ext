@@ -502,8 +502,8 @@ regex/\.([rR][aA]?[mM])$
 
 include/video
 	#Open=(smplayer2 %f >/dev/null 2>&1 &)
-	Open=(vlc %f >/dev/null 2>&1 &)
-	#Open=(mplayer %f >/dev/null 2>&1 &)
+	# Open=(vlc %f >/dev/null 2>&1 &)
+	Open=(mplayer %f >/dev/null 2>&1 &)
 	#Open=(gtv %f >/dev/null 2>&1 &)
 	#Open=(xanim %f >/dev/null 2>&1 &)
 	View=%view{ascii} mediainfo %f -

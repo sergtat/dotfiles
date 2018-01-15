@@ -34,6 +34,7 @@ alias igrep='grep -i'
 alias pgrep='pgrep -l'
 alias rgrep='grep -r'
 # git
+alias git='hub'
 alias got='git'
 alias get='git'
 alias gs='git status'
@@ -93,6 +94,11 @@ alias urxvt-launcher="urxvt -geometry 80x3 -name 'bashrun' -e sh -c \"/bin/bash 
 alias zshrc="vim ~/.zshrc"
 alias vd='vimdiff'
 alias reload='source ~/.zshrc'
+alias psworld="ps f -g`pgrep world`"
+
 # Don't define aliases in plain Bourne shell
 [ -n "${BASH_VERSION}${KSH_VERSION}${ZSH_VERSION}" ] || return 0
+
 alias mc='. /usr/libexec/mc/mc-wrapper.sh'
+alias pdf2djvu-bw='pdf2djvu --monochrome --loss-level=200 -j0'
+alias mutt='neomutt'
