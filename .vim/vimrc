@@ -78,7 +78,9 @@ NeoBundle 'bling/vim-airline'
 NeoBundle 'vim-airline/vim-airline-themes'
 " }}}
 " lyokha/vim-xkbswitch {{{
-NeoBundle 'lyokha/vim-xkbswitch'
+if has("gui_running")
+  NeoBundle 'lyokha/vim-xkbswitch'
+endif
 " }}}
 " mhinz/vim-startify {{{
 NeoBundle 'mhinz/vim-startify'
@@ -251,9 +253,11 @@ let g:airline_symbols.paste = 'ρ'
 let g:airline_symbols.whitespace = 'Ξ'
 " }}}
 " vim-xkbswitch {{{
-let g:XkbSwitchEnabled = 1
-let g:XkbSwitchLib = '/usr/local/lib/libxkbswitch.so'
-let g:XkbSwitchNLayout = 'us'
+if has("gui_running")
+  let g:XkbSwitchEnabled = 1
+  let g:XkbSwitchLib = '/usr/local/lib/libxkbswitch.so'
+  let g:XkbSwitchNLayout = 'us'
+endif
 " }}}
 " mhinz/vim-startify {{{
 let g:startify_list_order = [
