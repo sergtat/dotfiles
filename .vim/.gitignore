@@ -5,7 +5,8 @@
 *.orig
 /bin/
 /tmp/
-/bundle/
+/bundle/*
+!bundle/gruvbox
 node_modules/
 
 
