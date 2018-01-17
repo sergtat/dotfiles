@@ -6,210 +6,77 @@
 " Author: Serg Tatarnikov <sergeytat@gmail.com>
 " Source: http://github.com/sergtat/vim
 "
-" NEOBUNDLE {{{ ===============================================================
+"
+" Maps Table {{{
+" }}}
 " Set compatibilites plugins {{{
 language ru_RU.UTF-8    " Solve some plugins incompatibilities
 set t_Co=256		" Use 256 colors in vim - some plugins not work without it
+" }}}
+" dein Scripts {{{
+if &compatible
+  set nocompatible
+endif
+set runtimepath+=/home/serg/.vim/bundles/repos/github.com/Shougo/dein.vim
+if dein#load_state('/home/serg/.vim/bundles')
+  call dein#begin('/home/serg/.vim/bundles')
 
-if has('vim_starting')
-    set nocompatible    " Be iMproved
-    set runtimepath+=~/.vim/bundle/neobundle.vim/
-endif
-filetype off			" Turn off filetype plugins before bundles init
-" }}}
-" Auto installing NeoBundle {{{
-let isNpmInstalled = executable("npm")
-let iCanHazNeoBundle=1
-let neobundle_readme=expand($HOME.'/.vim/bundle/neobundle.vim/README.md')
-if !filereadable(neobundle_readme)
-    if !isNpmInstalled
-        echo "==============================================="
-        echo "Your need to install npm to enable all features"
-        echo "==============================================="
-    endif
-    echo "Installing NeoBundle.."
-    echo ""
-    silent !mkdir -p $HOME/.vim/bundle
-    silent !git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
-    let iCanHazNeoBundle=0
-endif
-" }}}
-" Call NeoBundle begin {{{
-call neobundle#begin(expand('~/.vim/bundle/'))
-" }}}
-" BUNDLES {{{
-" Shougo/neobundle.vim {{{
-" Is better if NeoBundle rules NeoBundle (needed!)
-NeoBundle 'Shougo/neobundle.vim'
-" }}}
-" Shougo/vimproc {{{
-" Vimproc to asynchronously run commands (NeoBundle, Unite)
-NeoBundle 'Shougo/vimproc', {
-      \ 'build' : {
-      \     'windows' : 'make -f make_mingw32.mak',
-      \     'cygwin' : 'make -f make_cygwin.mak',
-      \     'mac' : 'make -f make_mac.mak',
-      \     'unix' : 'make -f make_unix.mak',
-      \    },
-      \ }
-" }}}
-" Shougo/unite.vim {{{
-" Unite. The interface to rule almost everything
-NeoBundle 'Shougo/unite.vim'
-" }}}
-" Shougo/neocomplete.vim {{{
-NeoBundle 'Shougo/neocomplete.vim'
-" }}}
-" Shougo/neosnippet.vim {{{
-NeoBundle 'Shougo/neosnippet.vim'
-NeoBundle 'Shougo/neosnippet-snippets'
-NeoBundle 'honza/vim-snippets'
-" }}}
-" Colorschemes {{{
-" NeoBundle 'altercation/vim-colors-solarized'
-NeoBundle 'morhetz/gruvbox'
-" NeoBundle 'flazz/vim-colorschemes'
-" NeoBundle 'xolox/vim-misc'
-" NeoBundle 'xolox/vim-colorscheme-switcher'
-" NeoBundle 'vim-scripts/Txtfmt-The-Vim-Highlighter'
-" }}}
-" bling/vim-airline {{{
-NeoBundle 'bling/vim-airline'
-NeoBundle 'vim-airline/vim-airline-themes'
-" }}}
-" lyokha/vim-xkbswitch {{{
-if has("gui_running")
-  NeoBundle 'lyokha/vim-xkbswitch'
-endif
-" }}}
-" mhinz/vim-startify {{{
-NeoBundle 'mhinz/vim-startify'
-" }}}
-" jiangmiao/auto-pairs {{{
-NeoBundle 'jiangmiao/auto-pairs'
-" }}}
-" tpope/vim-repeat {{{
-NeoBundle 'tpope/vim-repeat'
-" }}}
-" tpope/vim-surround {{{
-NeoBundle 'tpope/vim-surround'
-" }}}
-" tpope/vim-rsi {{{
-NeoBundle 'tpope/vim-rsi'
-" }}}
-" tpope/vim-commentary {{{
-NeoBundle 'tpope/vim-commentary'
-" NeoBundle 'tomtom/tcomment_vim'
-" NeoBundle 'scrooloose/nerdcommenter'
-" }}}
-" investigate.vim {{{
-NeoBundle 'Keithbsmiley/investigate.vim'
-" }}}
-" vim-visual-increment {{{
-NeoBundle 'triglav/vim-visual-increment'
-" }}}
-" AndrewRadev/switch.vim {{{
-" Switch yes/no
-NeoBundle 'AndrewRadev/switch.vim'
-" }}}
-" sergtat/vim-numbered {{{
-NeoBundle 'sergtat/vim-numbered'
-" }}}
-" sergtat/increment.vim {{{
-NeoBundle 'sergtat/increment.vim'
-" }}}
-" godlygeek/tabular {{{
-NeoBundle 'godlygeek/tabular'
-" }}}
-" dhruvasagar/vim-table-mode {{{
-NeoBundle 'dhruvasagar/vim-table-mode'
-" }}}
-" subosito/vim-translator {{{
-NeoBundle 'subosito/vim-translator'
-" }}}
-" Syntax {{{
-" Markdown {{{
-" NeoBundleLazy 'plasticboy/vim-markdown', { 'autoload' : { 'filetypes' : ['markdown'] } }
-" NeoBundleLazy 'tpope/vim-markdown', { 'autoload' : { 'filetypes' : ['markdown'] } }
-NeoBundleLazy 'gabrielelana/vim-markdown', { 'autoload' : { 'filetypes' : ['markdown'] } }
-NeoBundleLazy 'sergtat/vim-markdown-stuff', { 'autoload' : { 'filetypes' : ['markdown'] } }
-" NeoBundleLazy 'jtratner/vim-flavored-markdown', { 'autoload' : { 'filetypes' : ['markdown'] } }
-" NeoBundleLazy 'vim-pandoc/vim-pandoc-syntax', { 'autoload' : { 'filetypes' : ['markdown'] } }
-" NeoBundleLazy 'mikewest/vim-markdown', { 'autoload' : { 'filetypes' : ['markdown'] } }
-" }}}
-" Coffee {{{
-NeoBundleLazy 'kchmck/vim-coffee-script', { 'autoload' : { 'filetypes' : ['coffee'] } }
-" }}}
-" Vue.js {{{
-NeoBundleLazy 'posva/vim-vue', { 'autoload' : { 'filetypes' : ['vue'] } }
-" }}}
-" }}}
-" END BUNDLES }}}
-" Call NeoBundle end {{{
-call neobundle#end()
-" }}}
-" Indent and plugins by filetype {{{
-if has('autocmd')
-  filetype plugin indent on
-endif
-" }}}
-" Enable syntax highlighting {{{
-if has('syntax') && !exists('g:syntax_on')
-  syntax enable
-endif
-" }}}
-" Auto install and Delete the Plugins {{{
-" First-time plugins installation
-if iCanHazNeoBundle == 0
-    echo "Installing Bundles, please ignore key map error messages"
-    echo ""
-    set nomore
-    NeoBundleInstall
-endif
-" Check if all of the plugins are already installed, in other case ask if we
-" want to install them (useful to add plugins in the .vimrc)
-NeoBundleCheck
-NeoBundleClearCache
-" }}}
-" END NEOBUNDLE }}}
-" PLUGINS Setup {{{ ===========================================================
-" neocomplete {{{
-let g:neocomplete#enable_at_startup = 1
-let g:neocomplete#enable_smart_case = 1
-let g:neocomplete#enable_refresh_always = 1
-let g:neocomplete#max_list = 50
-let g:neocomplete#min_keyword_length = 1
-let g:neocomplete#sources#syntax#min_keyword_length = 1
-let g:neocomplete#data_directory = $HOME.'/.vim/tmp/neocomplete'
-let g:neocomplete#enable_auto_select = 0
-
-" toggle the auto select feature
-function! ToggleNeoComplete()
-  if !g:neocomplete#disable_auto_complete && g:neocomplete#enable_auto_select
-      let g:neocomplete#disable_auto_complete = 0
-      let g:neocomplete#enable_auto_select = 0
-  elseif !g:neocomplete#disable_auto_complete && !g:neocomplete#enable_auto_select
-      let g:neocomplete#disable_auto_complete = 1
-      let g:neocomplete#enable_auto_select = 0
-  elseif g:neocomplete#disable_auto_complete && !g:neocomplete#enable_auto_select
-      let g:neocomplete#disable_auto_complete = 0
-      let g:neocomplete#enable_auto_select = 1
+  call dein#add('/home/serg/.vim/bundles/repos/github.com/Shougo/dein.vim')
+  call dein#add('Shougo/denite.nvim')
+  call dein#add('Shougo/deoplete.nvim')
+  if !has('nvim')
+    call dein#add('roxma/nvim-yarp')
+    call dein#add('roxma/vim-hug-neovim-rpc')
   endif
-endfunction
-nnoremap <silent><Leader>nc :call ToggleNeoComplete()<CR>
+  call dein#add('Shougo/neosnippet.vim')
+  call dein#add('Shougo/neosnippet-snippets')
+  call dein#add ('mhinz/vim-startify')
+  call dein#add ('morhetz/gruvbox')
+  call dein#add ('bling/vim-airline')
+  call dein#add ('vim-airline/vim-airline-themes')
+  if has("gui_running")
+    call dein#add ('lyokha/vim-xkbswitch')
+  endif
+  call dein#add ('vim-scripts/TaskList.vim')
+  call dein#add ('Shougo/neosnippet.vim')
+  call dein#add ('Shougo/neosnippet-snippets')
+  call dein#add ('honza/vim-snippets')
+  call dein#add ('scrooloose/nerdtree')
+  call dein#add ('fholgado/minibufexpl.vim')
+  call dein#add ('majutsushi/tagbar')
+  call dein#add ('jiangmiao/auto-pairs')
+  call dein#add ('tpope/vim-repeat')
+  call dein#add ('tpope/vim-surround')
+  call dein#add ('tpope/vim-rsi')
+  call dein#add ('tpope/vim-commentary')
+  call dein#add ('Keithbsmiley/investigate.vim')
+  call dein#add ('triglav/vim-visual-increment')
+  call dein#add ('AndrewRadev/switch.vim')
+  call dein#add ('sergtat/vim-numbered')
+  call dein#add ('sergtat/increment.vim')
+  call dein#add ('godlygeek/tabular')
+  call dein#add ('dhruvasagar/vim-table-mode')
+  call dein#add ('subosito/vim-translator')
+  call dein#add ('gabrielelana/vim-markdown', {'on_ft': 'markdown'})
+  call dein#add ('sergtat/vim-markdown-stuff', {'on_ft': 'markdown'})
+  call dein#add ('kchmck/vim-coffee-script', {'on_ft': 'coffee'})
+  call dein#add ('posva/vim-vue', {'on_ft': 'vue'})
+  call dein#add ('ap/vim-css-color', {'on_ft': 'css'})
+  call dein#add ('scrooloose/syntastic')
 
-" Enable omni completion.
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-if !exists('g:neocomplete#sources#omni#input_patterns')
-    let g:neocomplete#sources#omni#input_patterns = {}
+  call dein#end()
+  call dein#save_state()
 endif
-let g:neocomplete#sources#omni#input_patterns.python='[^. \t]\.\w*'
+
+filetype plugin indent on
+syntax enable
+
+if dein#check_install()
+  call dein#install()
+endif
 " }}}
+" PLUGINS Setup {{{
+let g:deoplete#enable_at_startup = 1
 " neosnippet {{{
 " Plugin key-mappings.
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
@@ -218,11 +85,11 @@ xmap <C-k>     <Plug>(neosnippet_expand_target)
 
 " SuperTab like snippets behavior.
 imap <expr><TAB>
-\ pumvisible() ? "\<C-n>" :
-\ neosnippet#expandable_or_jumpable() ?
-\    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+  \ pumvisible() ? "\<C-n>" :
+  \ neosnippet#expandable_or_jumpable() ?
+  \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+  \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 
 " For conceal markers.
 if has('conceal')
@@ -236,9 +103,7 @@ let g:neosnippet#enable_snipmate_compatibility = 1
 let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
 " }}}
 " vim-airline {{{
-"let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme='powerlineish'
-"let g:airline_theme='molokai'
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
@@ -380,7 +245,7 @@ set ttyfast                     " better screen redraw
 set title                       " set the terminal title to the current file
 
 if !&scrolloff
-  set scrolloff=1
+  set scrolloff=5
 endif
 if !&sidescrolloff
   set sidescrolloff=5
@@ -435,6 +300,16 @@ if !exists('g:loaded_matchit') && findfile('plugin/matchit.vim', &rtp) ==# ''
 endif
 
 inoremap <C-U> <C-G>u<C-U>
+" }}}
+" Undo history {{{
+if version >= 700
+    set history=64
+    set undodir=~/.vim/undo/
+    set undofile
+    set undolevels=1000
+    set undoreload=10000
+endif
+set noswapfile
 " }}}
 " Indent {{{
 set autoindent
@@ -543,6 +418,8 @@ map  <F2> :w<CR>
 map! <F2> <Esc>:w<CR>
 map  <F3> :q<CR>
 map! <F3> <Esc>:q<CR>
+nmap <F8> :TagbarToggle<CR>
+map <F9> :NERDTreeToggle<CR>
 vmap < <gv
 vmap > >gv
 nmap <Enter> i<CR><Esc>
@@ -601,6 +478,17 @@ augroup buffer-cleaner
 autocmd!
 autocmd BufHidden * CleanBuffers
 augroup END
+
+" Autoexecute scripts
+" function ModeChange()
+"   if getline(1) =~ "^#!"
+"     if getline(1) =~ "bin/"
+"       silent !chmod a+x <afile>
+"     endif
+"   endif
+" endfunction
+" au BufWritePost * call ModeChange()
+
 " }}}
 " END VIM SETUP }}}
 " ABBREVIATE {{{

@@ -1,2 +1,2 @@
 " MyConf
-" let g:snips_author = "You Name"
+" let g:snips_author = "Serg Tatarnikov"
