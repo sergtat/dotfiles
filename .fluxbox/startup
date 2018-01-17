@@ -1,8 +1,9 @@
 #!/bin/sh
-fbsetbg -C ~/Docs/backgrounds/Fluxbox-logo.png
+# fbsetbg -C ~/Docs/backgrounds/Fluxbox-logo.png
 xmodmap "/home/serg/.Xmodmap"
 play ~/Docs/sounds/desktop-login.ogg &
-lxpanelx &
+# lxpanelx &
+fbpanel &
 numlockx &
 unclutter -idle 2 &
 parcellite &
@@ -11,10 +12,13 @@ fbsetbg -f ~/Docs/backgrounds/default.jpg
 idesk &
 conky &
 udiskie --tray &
+# dbus-launch nm-applet &
 ~/bin/urxvt-run.sh &
-~/bin/firefox &
+# ~/bin/firefox &
+/opt/firefox/firefox &
+# google-chrome-beta &
+KeeWeb &
 # keepassx &
-#goldendict &
-#sdcv &
-# ~/bin/mail.ru.cloud &
+# goldendict &
+# sdcv &
 exec /usr/bin/fluxbox -log "/home/serg/.fluxbox/log"

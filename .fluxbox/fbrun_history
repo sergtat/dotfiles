@@ -1,0 +1,16 @@
+uurxvt -name sergtat -sl 3000 -tr +sb -sr -sk -bg black -fg white -bl
+-sk -bg black -fg white -bl
+idesktool
+xzgv
+urxvtc
+firefox safe-mod
+gnucash
+firefox-bin -P
+udiskie --tray
+htop
+urxvt -depth 32 -bg rgba:3f00/3f00/3f00/dddd
+pelican
+KeeWeb
+firefox -P
+webstorm
+robomongo

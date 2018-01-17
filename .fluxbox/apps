@@ -8,3 +8,8 @@
   [Position]	(UPPERLEFT)	{0% 0%}
   [Maximized]	{yes}
 [end]
+[app] (class=KeeWeb)
+  [Workspace]	{1}
+  [Position]	(UPPERLEFT)	{0% 0%}
+  [Maximized]	{yes}
+[end]
