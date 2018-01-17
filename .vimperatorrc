@@ -33,6 +33,6 @@ nmap ,gp :tabopen<Space>https://play.google.com/store?hl=ru&tab=i8<Return>
 noremap ,, :nohlsearch<Return>
 set complete=sSl
 set titlestring=
-source! /home/serg/.vimperatorrc.local
+source! /.vimperatorrc.local
 
 " vim: set ft=vimperator:

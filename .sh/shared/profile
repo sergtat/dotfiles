@@ -1,5 +1,0 @@
-export LIBVA_DRIVER_NAME="vdpau"
-export VDPAU_DRIVER="r600"
-export NODE_PATH=/usr/local/lib/jsctags/:$/usr/include/node:/usr/lib64/node_modules
-ENV="$HOME/.sh/env"                                                      
-BASH_ENV="$HOME/.sh/env"
