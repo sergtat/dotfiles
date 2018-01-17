@@ -1,0 +1,3 @@
+General;File is:%FileName% 
+Video;Resolution is:%Width%x%Height%\r\nAspect %DisplayAspectRatio/String%\r\n
+Audio;Codec = %Format%
