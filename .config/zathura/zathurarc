@@ -5,11 +5,13 @@ set font        "Dejavu Sans Mono 10"
 
 # set recolor-darkcolor       "#000000"
 # set recolor-lightcolor      "#444444"
-set recolor-darkcolor       "#EEEEEE"
-set recolor-lightcolor      "#121212"
+# set recolor-darkcolor       "#EEEEEE"
+# set recolor-lightcolor      "#121212"
 
 map <F1> set "pages-per-row 1"
 map <F2> set "pages-per-row 2"
 map <F3> adjust_window best-fit
 map <F4> adjust_window width
 map <F10> quit
+map <C-i> zoom in
+map <C-o> zoom out
