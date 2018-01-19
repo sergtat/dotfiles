@@ -11,7 +11,16 @@
 " }}}
 " Set compatibilites plugins {{{
 language ru_RU.UTF-8    " Solve some plugins incompatibilities
-set t_Co=256		" Use 256 colors in vim - some plugins not work without it
+if &term =~ "xterm" || &term =~ "screen"
+  set t_Co=256
+  if has("terminfo")
+    let &t_Sf=nr2char(27).'[3%p1%dm'
+    let &t_Sb=nr2char(27).'[4%p1%dm'
+  else
+    let &t_Sf=nr2char(27).'[3%dm'
+    let &t_Sb=nr2char(27).'[4%dm'
+  endif
+endif
 " }}}
 " dein Scripts {{{
 if &compatible
@@ -506,7 +515,7 @@ iab пп **Приготовление**<CR>
 " Which is easy to put in a command:
 " command! -nargs=0 -range=% Number <line1>,<line2>s/^\s*\zs/\=(line('.') - <line1>+1).'. '
 " }}}
-if &term == 'screen'
+if &term =~ 'screen'
   hi Comment ctermbg=green ctermfg=235 
 endif
 " vim:foldmethod=marker
