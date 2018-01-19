@@ -43,13 +43,12 @@ ENABLE_CORRECTION="true"
 HIST_STAMPS="yyyy-mm-dd"
 
 # Would you like to use another custom folder than $ZSH/custom?
-ZSH_CUSTOM="$HOME/.zsh"
-# ZSH_CACHE_DIR="$HOME/.zsh/cache"
+# ZSH_CUSTOM="$HOME/.zsh"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(adb git npm tmux z)
+plugins=(adb bgnotify colorize copybuffer copydir copyfile dotenv git npm tmux z)
 # plugins=(adb coffee cp encode64 git jsontools node npm sudo tmuxinator urltools vi-mode)
 # plugins=(git github gitfast git-flow vundle vi-mode sprunde screen redis-cli npm node extract encode64 urltools history-substring-search)
 
@@ -81,8 +80,8 @@ export ARCHFLAGS="-arch x86_64"
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-alias zshconfig="vim ~/.zshrc"
-alias ohmyzsh="vim ~/.oh-my-zsh"
+alias zshrc="vim ~/.zshrc"
+alias ohmyzsh="vim ~/.oh-my-zsh/oh-my-zsh.sh"
 
 [[ -r ~/.zshrc.local ]] && source ~/.zshrc.local
 

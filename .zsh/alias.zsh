@@ -26,7 +26,7 @@ alias vrc='vim ~/.vim/vimrc'
 alias svim='sudo vim'
 alias lastlog='lastlog|grep -v \*'
 alias dmesg='dmesg --color'
-# grep 
+# grep
 alias egrep='grep -E'
 alias fgrep='grep -F'
 alias grep='grep -s'
@@ -62,13 +62,13 @@ if [ -f /usr/bin/grc ]; then
 fi
 # portage
 if [[ $UID != 0 ]]; then
-	alias emerge='sudo emerge'
-	alias layman='sudo layman'
-	alias dispath-conf='sudo dispatch-conf'
-	alias myuse='sudo myuse'
-	alias mykey='sudo mykey'
-	alias ufed='sudo ufed'
-	alias eselect='sudo eselect'
+  alias emerge='sudo emerge'
+  alias layman='sudo layman'
+  alias dispath-conf='sudo dispatch-conf'
+  alias myuse='sudo myuse'
+  alias mykey='sudo mykey'
+  alias ufed='sudo ufed'
+  alias eselect='sudo eselect'
 fi
 alias eix-test-obsolete='LANG=C eix-test-obsolete'
 
