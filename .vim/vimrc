@@ -515,7 +515,7 @@ iab пп **Приготовление**<CR>
 " Which is easy to put in a command:
 " command! -nargs=0 -range=% Number <line1>,<line2>s/^\s*\zs/\=(line('.') - <line1>+1).'. '
 " }}}
-if &term =~ 'screen'
+if &term =~ "xterm" || &term =~ "screen"
   hi Comment ctermbg=green ctermfg=235 
 endif
 " vim:foldmethod=marker
