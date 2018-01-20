@@ -12,7 +12,7 @@ export DE='fluxbox'
 export LESS='-RQM'
 export GZIP='-v9N'
 export BROWSER='firefox'
-export SHELL=zsh
+# export SHELL=/bin/zsh
 export PATH="$HOME/bin:/usr/local/bin:$PATH"
 
 #---- SVN -----------------#
