@@ -312,15 +312,23 @@ endif
 
 inoremap <C-U> <C-G>u<C-U>
 " }}}
-" Undo history {{{
-if version >= 700
+" Persistent Undo {{{
+" Keep undo history across sessions by storing it in a file
+if v:version >= 703
+  if has("persistent_undo")
+    let myUndoDir = expand(vimDir . '/undo')
+    " Create dirs
+    call system('mkdir ' . vimDir)
+    call system('mkdir ' . myUndoDir)
+    let &undodir = myUndoDir
     set history=64
-    set undodir=~/.vim/undo/
     set undofile
     set undolevels=1000
     set undoreload=10000
+  endif
 endif
-set noswapfile
+" }}}
+" set noswapfile
 " }}}
 " Indent {{{
 set autoindent
@@ -517,4 +525,5 @@ iab пп **Приготовление**<CR>
 " Which is easy to put in a command:
 " command! -nargs=0 -range=% Number <line1>,<line2>s/^\s*\zs/\=(line('.') - <line1>+1).'. '
 " }}}
+
 " vim:foldmethod=marker
