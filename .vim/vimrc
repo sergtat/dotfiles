@@ -196,7 +196,7 @@ if &term == "linux"
 else
     colorscheme gruvbox
 endif
-highlight Comment cterm=Italic term=italic gui=italic
+highlight Comment ctermbg=235 ctermfg=lightgreen cterm=italic gui=italic
 highlight htmlItalic cterm=Italic term=italic gui=italic
 highlight htmlBoldItalic cterm=BoldItalic term=BoldItalic gui=BoldItalic
 highlight markdownItalic cterm=Italic term=italic gui=italic
@@ -517,7 +517,4 @@ iab пп **Приготовление**<CR>
 " Which is easy to put in a command:
 " command! -nargs=0 -range=% Number <line1>,<line2>s/^\s*\zs/\=(line('.') - <line1>+1).'. '
 " }}}
-if &term =~ "xterm" || &term =~ "screen"
-  hi Comment ctermbg=235 ctermfg=lightgreen cterm=italic gui=italic
-endif
 " vim:foldmethod=marker
