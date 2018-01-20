@@ -13,7 +13,8 @@ idesk &
 conky &
 udiskie --tray &
 # dbus-launch nm-applet &
-~/bin/urxvt-run.sh &
+# ~/bin/urxvt-run.sh &
+tilda &
 # ~/bin/firefox &
 /opt/firefox/firefox &
 # google-chrome-beta &
