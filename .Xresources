@@ -1,6 +1,6 @@
 !------------- COLORS --------------
-! hard contrast: *background: #1d2021
-! soft contrast: *background: #32302f
+hard contrast: *background: #1d2021
+soft contrast: *background: #32302f
 *background: #282828
 *foreground: #ebdbb2
 ! Black + DarkGrey
@@ -32,10 +32,12 @@
 !------------- FONTS --------------
 *.shading: 25
 
-*.font: -*-terminesspowerline-medium-*-*-*-18-*-*-*-*-*-*-*
-*.boldfont: -*-terminesspowerline-bold-*-*-*-18-*-*-*-*-*-*-*
-*.italicfont: xft:Ubuntu Mono derivative Powerline:style=Italic:pixelsize=18
-*.boldItalicfont: xft:Ubuntu Mono derivative Powerline:style=Bold Italic:pixelsize=18
+!*.font: -*-terminesspowerline-medium-*-*-*-18-*-*-*-*-*-*-*
+!*.boldfont: -*-terminesspowerline-bold-*-*-*-18-*-*-*-*-*-*-*
+*.font: xft:Ubuntu Mono derivative Powerline:style=Normal:pixelsize=20
+*.boldfont: xft:Ubuntu Mono derivative Powerline:style=Bold:pixelsize=20
+*.italicfont: xft:Ubuntu Mono derivative Powerline:style=Italic:pixelsize=20
+*.boldItalicfont: xft:Ubuntu Mono derivative Powerline:style=Bold Italic:pixelsize=20
 
 *.font-size.step: 2
 
@@ -48,13 +50,13 @@ URxvt.loginShell:       false
 URxvt.meta:             ignore
 URxvt.utmpInhibit:      true
 
-!URxvt.colorUL: 4
+URxvt.colorUL: 4
 URxvt.underlineURLs:    true
 URxvt.scrollBar:        false
 URxvt.saveLines:        8192
 
 !urxvt будет искать скрипты сначала в этой директории, потом в /usr/lib/urxvt/perl
-URxvt.perl-lib: /home/serg/repo/dotfiles/.urxvt/ext/
+URxvt.perl-lib: repo/dotfiles/.urxvt/ext/
 
 ! Clickable urls, url-select without mouse, tabs
 !URxvt.perl-ext-common:  default,matcher,url-select,tabbedex,keyboard-select
@@ -66,8 +68,7 @@ URxvt.url-select.autocopy:       true
 URxvt.url-select.button:         2
 URxvt.url-select.launcher:       /usr/bin/xdg-open
 URxvt.url-select.underline:      true
-!! see discussion http://wilmer.gaa.st/blog/archives/36-rxvt-unicode-and-ISO-14755-mode.html
-URxvt.iso14755:                  false
+URxvt.iso14755:                  true
 URxvt.iso14755_52:               false
 URxvt.tabbed.new-button:         false
 URxvt.tabbed.autohide:           true
@@ -100,5 +101,5 @@ URxvt.matcher.pattern.0:  (?:https?:\\/\\/|ftp:\\/\\/|news:\\/\\/|mailto:|file:\
                           )+
 
 ! #include "repo/dotfiles/.Xresources.d/gruvbox-dark.xresources"
-! #include "/home/serg/repo/dotfiles/.Xresources.d/fonts.xresources"
+! #include "repo/dotfiles/.Xresources.d/fonts.xresources"
 
