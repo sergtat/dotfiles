@@ -10,6 +10,8 @@
 " Maps Table {{{
 " }}}
 " Set compatibilites plugins {{{
+" Put plugins and dictionaries in this dir
+let vimDir = '$HOME/.vim'
 language ru_RU.UTF-8    " Solve some plugins incompatibilities
 if &term =~ "xterm" || &term =~ "screen"
   set t_Co=256
@@ -26,11 +28,11 @@ endif
 if &compatible
   set nocompatible
 endif
-set runtimepath+=/home/serg/.vim/bundles/repos/github.com/Shougo/dein.vim
-if dein#load_state('/home/serg/.vim/bundles')
-  call dein#begin('/home/serg/.vim/bundles')
+set runtimepath+=$HOME/.vim/bundles/repos/github.com/Shougo/dein.vim
+if dein#load_state(expand('$HOME/.vim/bundles'))
+  call dein#begin(expand('$HOME/.vim/bundles'))
 
-  call dein#add('/home/serg/.vim/bundles/repos/github.com/Shougo/dein.vim')
+  call dein#add(expand('$HOME/.vim/bundles/repos/github.com/Shougo/dein.vim'))
   call dein#add('Shougo/denite.nvim')
   call dein#add('Shougo/deoplete.nvim')
   if !has('nvim')
