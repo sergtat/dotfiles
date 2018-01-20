@@ -32,6 +32,8 @@ fi
 
 unfunction zkbd_file; unset keyfile ret
 
+export WORDCHARS=''
+
 # setup key accordingly
 [[ -n "$key[Home]"      ]] && bindkey -- "$key[Home]"      beginning-of-line
 [[ -n "$key[End]"       ]] && bindkey -- "$key[End]"       end-of-line
