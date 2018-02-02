@@ -1,6 +1,7 @@
 #!/bin/sh
 # fbsetbg -C ~/Docs/backgrounds/Fluxbox-logo.png
-xmodmap "/home/serg/.Xmodmap"
+xmodmap "/home/serg/.Xmodmap" &
+nvidia-settings --load-config-only &
 play ~/Docs/sounds/desktop-login.ogg &
 # lxpanelx &
 fbpanel &
@@ -16,7 +17,7 @@ udiskie --tray &
 # ~/bin/urxvt-run.sh &
 tilda &
 # ~/bin/firefox &
-/opt/firefox/firefox &
+# /opt/firefox/firefox &
 # google-chrome-beta &
 KeeWeb &
 # keepassx &
