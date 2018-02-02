@@ -13,16 +13,16 @@
 " Put plugins and dictionaries in this dir
 let vimDir = '$HOME/.vim'
 language ru_RU.UTF-8    " Solve some plugins incompatibilities
-if &term =~ "xterm" || &term =~ "screen"
-  set t_Co=256
-  if has("terminfo")
-    let &t_Sf=nr2char(27).'[3%p1%dm'
-    let &t_Sb=nr2char(27).'[4%p1%dm'
-  else
-    let &t_Sf=nr2char(27).'[3%dm'
-    let &t_Sb=nr2char(27).'[4%dm'
-  endif
-endif
+" if &term =~ "xterm" || &term =~ "screen"
+"   set t_Co=256
+  " if has("terminfo")
+  "   let &t_Sf=nr2char(27).'[3%p1%dm'
+  "   let &t_Sb=nr2char(27).'[4%p1%dm'
+  " else
+  "   let &t_Sf=nr2char(27).'[3%dm'
+  "   let &t_Sb=nr2char(27).'[4%dm'
+  " endif
+" endi
 " }}}
 " dein Scripts {{{
 if &compatible
@@ -34,7 +34,7 @@ if dein#load_state(expand('$HOME/.vim/bundles'))
 
   call dein#add(expand('$HOME/.vim/bundles/repos/github.com/Shougo/dein.vim'))
   call dein#add('Shougo/denite.nvim')
-  call dein#add('Shougo/deoplete.nvim')
+  " call dein#add('Shougo/deoplete.nvim')
   if !has('nvim')
     call dein#add('roxma/nvim-yarp')
     call dein#add('roxma/vim-hug-neovim-rpc')
@@ -87,7 +87,7 @@ if dein#check_install()
 endif
 " }}}
 " PLUGINS Setup {{{
-let g:deoplete#enable_at_startup = 1
+" let g:deoplete#enable_at_startup = 1
 " neosnippet {{{
 " Plugin key-mappings.
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
@@ -301,9 +301,9 @@ endif
 set sessionoptions-=options
 
 " Allow color schemes to do bright colors without forcing bold.
-if &t_Co == 8 && $TERM !~# '^linux\|^Eterm'
-  set t_Co=256
-endif
+" if &t_Co == 8 && $TERM !~# '^linux\|^Eterm'
+"   set t_Co=256
+" endif
 
 " Load matchit.vim, but only if the user hasn't installed a newer version.
 if !exists('g:loaded_matchit') && findfile('plugin/matchit.vim', &rtp) ==# ''
@@ -445,13 +445,13 @@ nmap <Enter> i<CR><Esc>
 nmap <Space> i<Space><Esc>
 " Tabs {{{
 map <C-t> :tabnew<CR>
-if &term == "linux"
-nnoremap L gt
-nnoremap H gT
-else
-nnoremap Oc gt
-nnoremap Od gT
-endif
+" if &term == "linux"
+" nnoremap L gt
+" nnoremap H gT
+" else
+" nnoremap Oc gt
+" nnoremap Od gT
+" endif
 " }}}
 " }}}
 " Edit & autoload configuration when this file changes ($MYIMRC) {{{
@@ -525,5 +525,10 @@ iab пп **Приготовление**<CR>
 " Which is easy to put in a command:
 " command! -nargs=0 -range=% Number <line1>,<line2>s/^\s*\zs/\=(line('.') - <line1>+1).'. '
 " }}}
+
+if &term == 'xterm-256color'
+  map [[B :w<CR>
+  map [[C :q<CR>
+endif
 
 " vim:foldmethod=marker
