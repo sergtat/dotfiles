@@ -1,5 +1,4 @@
 #!/bin/sh
-# fbsetbg -C ~/Docs/backgrounds/Fluxbox-logo.png
 xmodmap "/home/serg/.Xmodmap" &
 nvidia-settings --load-config-only &
 play ~/Docs/sounds/desktop-login.ogg &
@@ -9,7 +8,7 @@ numlockx &
 unclutter -idle 2 &
 parcellite &
 xbindkeys &
-fbsetbg -f ~/Docs/backgrounds/default.jpg
+fbsetbg -f ~/Docs/backgrounds/1920x1080/default.jpg
 idesk &
 conky &
 udiskie --tray &

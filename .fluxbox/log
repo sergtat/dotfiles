@@ -1,8 +1,8 @@
 ------------------------------------------
 Имя файла журнала: /home/serg/.fluxbox/log
-Версия Fluxbox: 1.3.7-gentoo-r3
+Версия Fluxbox: 1.3.7-gentoo-r4
 Номер ревизии: unknown
-Скомпилированный: Dec 10 2017 19:44:35
+Скомпилированный: Feb  3 2018 16:42:32
 Компилятор: GCC
 Версия компилятора: 6.4.0
 
@@ -24,8 +24,8 @@ REMEMBER
 RENDER
 SHAPE
 SLIT
-SYSTEMTRAY
-TOOLBAR
+-SYSTEMTRAY
+-TOOLBAR
 RANDR
 XFT
 -XINERAMA

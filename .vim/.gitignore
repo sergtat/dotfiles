@@ -5,7 +5,7 @@
 *.orig
 /bin/
 /tmp/
-/bundles/*
+/dein/*
 node_modules/
 /undo/*
 

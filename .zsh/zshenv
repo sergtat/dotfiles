@@ -8,10 +8,10 @@ export PAGER=less
 export MAILCHECK=60
 export MAILPATH="$HOME/.mail/new?'You have new mail!'"
 export MAILDIR="$HOME/.mail"
-export DE='fluxbox'
+export DE='generic'
 export LESS='-RQM'
 export GZIP='-v9N'
-export BROWSER='firefox'
+export BROWSER='firefox-bin'
 # export SHELL=/bin/zsh
 export PATH="$HOME/bin:/usr/local/bin:$PATH"
 
@@ -21,7 +21,6 @@ export SVN_EDITOR="vim"
 #---- accept-line-with-url ---#
 export WWW_BROWSER="w3m"
 export DOWNLOADER="wget -S"
-
 export XDG_CONFIG_HOME=$HOME/.config
 
 #if [ $(ls $HOME/.ssh/id_*.pub) ]
