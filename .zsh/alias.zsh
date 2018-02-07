@@ -20,10 +20,11 @@ alias lsf='find . -maxdepth 1 -type f | sed "s@./@@"'
 alias ping='ping -c3'
 alias rm='rm -i'
 alias su-='su -'
-alias v='vim'
-alias vimrc='vim ~/.vim/vimrc'
-alias vrc='vim ~/.vim/vimrc'
-alias svim='sudo vim'
+alias vim='nvim'
+alias v='nvim'
+alias nv='nvim'
+alias vimrc='nvim ~/.config/nvim/init.vim'
+alias vrc='nvim ~/.config/nvim/init.vim'
 alias lastlog='lastlog|grep -v \*'
 alias dmesg='dmesg --color'
 # grep
@@ -91,10 +92,11 @@ alias tdc='timedatectl'
 
 # other
 alias urxvt-launcher="urxvt -geometry 80x3 -name 'bashrun' -e sh -c \"/bin/bash -i -t\""
-alias zshrc="vim ~/.zshrc"
-alias vd='vimdiff'
+alias zshrc="nvim ~/.zshrc"
 alias reload='source ~/.zshrc'
 alias psworld="ps f -g`pgrep world`"
+alias xdg-user-dirs-update="LANG=C xdg-user-dirs-update"
+alias xdg-user-dirs="LANG=C xdg-user-dirs"
 
 # Don't define aliases in plain Bourne shell
 [ -n "${BASH_VERSION}${KSH_VERSION}${ZSH_VERSION}" ] || return 0

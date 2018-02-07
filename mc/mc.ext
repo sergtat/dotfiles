@@ -402,7 +402,7 @@ regex/\.([jJ][pP][eE]?[gG])$
 
 include/image
 	#Open=if [ "$DISPLAY" = "" ]; then zgv %f; else (gqview %f &); fi
-	Open=if [ -n $DISPLAY ]; then (gqview -t -f %f &>/dev/null &); fi
+	Open=if [ -n $DISPLAY ]; then (gqview -t -f %f &>/dev/null &); else zgv %f; fi
 	View=%view{ascii} mediainfo "%f"
 
 

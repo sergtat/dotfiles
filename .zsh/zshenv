@@ -3,7 +3,7 @@
 export WINEARCH="win32"
 export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
 export NODE_PATH=/usr/include/node:/usr/lib64/node_modules
-export EDITOR="/usr/bin/vim"
+export EDITOR="/usr/bin/nvim"
 export PAGER=less
 export MAILCHECK=60
 export MAILPATH="$HOME/.mail/new?'You have new mail!'"
@@ -19,9 +19,11 @@ export PATH="$HOME/bin:/usr/local/bin:$PATH"
 export SVN_EDITOR="vim"
 
 #---- accept-line-with-url ---#
-export WWW_BROWSER="w3m"
-export DOWNLOADER="wget -S"
-export XDG_CONFIG_HOME=$HOME/.config
+# export WWW_BROWSER="w3m"
+# export DOWNLOADER="wget -S"
+[ -z "$XDG_CONFIG_HOME" ] && export XDG_CONFIG_HOME="$HOME/.config"
+[ -z "$XDG_DATA_HOME" ] && export XDG_DATA_HOME="$HOME/.local/share"
+[ -z "$XDG_CACHE_HOME" ] && export XDG_CACHE_HOME="$HOME/.cache"
 
 #if [ $(ls $HOME/.ssh/id_*.pub) ]
 #then

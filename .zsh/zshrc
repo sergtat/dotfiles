@@ -87,8 +87,8 @@ export ARCHFLAGS="-arch x86_64"
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-alias zshrc="vim ~/.zshrc"
-alias ohmyzsh="vim ~/.oh-my-zsh/oh-my-zsh.sh"
+alias zshrc="nvim ~/.zshrc"
+alias ohmyzsh="nvim ~/.oh-my-zsh/oh-my-zsh.sh"
 
 [[ -r ~/.zshrc.local ]] && source ~/.zshrc.local
 
