@@ -1,4 +1,4 @@
-#!/bin/sh
+
 xmodmap "/home/serg/.Xmodmap" &
 nvidia-settings --load-config-only &
 play ~/Docs/sounds/desktop-login.ogg &
@@ -15,8 +15,8 @@ udiskie --tray &
 # dbus-launch nm-applet &
 # ~/bin/urxvt-run.sh &
 tilda &
-# ~/bin/firefox &
-# /opt/firefox/firefox &
+# firefox-bin &
+/opt/firefox/firefox &
 # google-chrome-beta &
 KeeWeb &
 # keepassx &
