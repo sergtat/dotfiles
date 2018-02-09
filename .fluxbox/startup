@@ -1,6 +1,5 @@
-
+urxvtcd &
 xmodmap "/home/serg/.Xmodmap" &
-nvidia-settings --load-config-only &
 play ~/Docs/sounds/desktop-login.ogg &
 # lxpanelx &
 fbpanel &
@@ -8,17 +7,16 @@ numlockx &
 unclutter -idle 2 &
 parcellite &
 xbindkeys &
-fbsetbg -f ~/Docs/backgrounds/1920x1080/default.jpg
+fbsetbg -f ~/Docs/backgrounds/1200x1024/welke-winterreis.jpg &
 idesk &
 conky &
 udiskie --tray &
 # dbus-launch nm-applet &
 # ~/bin/urxvt-run.sh &
-tilda &
 # firefox-bin &
 /opt/firefox/firefox &
 # google-chrome-beta &
-KeeWeb &
+# KeeWeb &
 # keepassx &
 # goldendict &
 # sdcv &

@@ -13,3 +13,6 @@
   [Position]	(UPPERLEFT)	{0% 0%}
   [Maximized]	{yes}
 [end]
+[app] (class=URxvt)
+  [Position]	(UPPERLEFT)	{0% 0%}
+[end]

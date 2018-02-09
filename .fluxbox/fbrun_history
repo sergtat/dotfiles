@@ -2,7 +2,6 @@ uurxvt -name sergtat -sl 3000 -tr +sb -sr -sk -bg black -fg white -bl
 -sk -bg black -fg white -bl
 idesktool
 xzgv
-urxvtc
 firefox safe-mod
 gnucash
 firefox-bin -P
@@ -15,3 +14,7 @@ firefox -P
 webstorm
 robomongo
 fbpanel
+Eterm
+mrxvt
+urxvt
+urxvtc

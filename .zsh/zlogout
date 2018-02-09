@@ -1,1 +1,3 @@
-clear
+echo zlogout
+sleep 2
+# clear
