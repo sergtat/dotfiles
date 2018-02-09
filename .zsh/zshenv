@@ -1,4 +1,5 @@
-echo zenv
+# echo zenv
+
 [ -z "$HOSTNAME" ] && export HOSTNAME=`uname -n`
 [ -z "$DOMAINNAME" ] && export HOSTNAME=`domainname -d`
 export WINEARCH="win32"

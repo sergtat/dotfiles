@@ -1,4 +1,4 @@
-echo zshrc.local
+# echo zshrc.local
 
 # HASH
 hash -d wiki="$HOME/repo/wiki/pages/"
