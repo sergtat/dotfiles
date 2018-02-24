@@ -10,7 +10,7 @@
 " }}}
 " Set compatibilites plugins {{{
 " Put plugins and dictionaries in this dir
-let nvimDir = '$XDG_CONFIG_HOME/nvim'
+let nvimDir = $XDG_CONFIG_HOME . '/nvim'
 language ru_RU.UTF-8    " Solve some plugins incompatibilities
 set encoding=utf-8
 " if &term =~ "xterm" || &term =~ "screen"
@@ -379,8 +379,8 @@ endif
 "   \ contains=@markdownInline
 
 autocmd BufRead,BufNewFile *.{md,mdown,mkd,mkdn,markdown,mdwn} set filetype=markdown
-autocmd FileType markdown map F5 :! ~/repo/sites/wiki/public/bin/update_bd.sh <CR>
-autocmd FileType markdown map F6 :! ~/repo/sites/wiki/public/bin/update.sh <CR>
+autocmd FileType markdown map F5 :! ~/repo/wiki-engine/public/bin/update_bd.sh <CR>
+autocmd FileType markdown map F6 :! ~/repo/wiki-engine/public/bin/update.sh <CR>
 autocmd FileType markdown let maplocalleader='\'
 autocmd FileType markdown :set list | :set nospell
 autocmd FileType markdown let g:table_mode_corner="|"
@@ -402,7 +402,7 @@ autocmd FileType markdown :vnoremap <localLeader>- :s/^\s*/- /<CR> :nohlsearch<C
 autocmd FileType markdown :nmap <localLeader>> :s/^\s*/> / <CR> :nohlsearch <CR>
 autocmd FileType markdown :vmap <localLeader>> :s/^\s*/> / <CR> :nohlsearch <CR>
 autocmd FileType markdown :vmap <localLeader>n :s@^\s*@1. @<CR> gv :Numbered<CR> :nohlsearch<CR>
-autocmd FileType markdown :nmap <localLeader>ti ^i![<C-R>%]<LEFT><BS><BS><BS><RIGHT>( ~/repo/sites/wiki/public/images/Kulinar '<C-R>%')<LEFT><BS><LEFT><BS><BS><BS><ESC>^/'<CR><LEFT>i/
+autocmd FileType markdown :nmap <localLeader>ti ^i![<C-R>%]<LEFT><BS><BS><BS><RIGHT>( ~/repo/wiki-engine/public/images/Kulinar '<C-R>%')<LEFT><BS><LEFT><BS><BS><BS><ESC>^/'<CR><LEFT>i/
 autocmd FileType markdown :map  <localLeader>di :%s@(.*/images@(/images@<CR> :nohlsearch<CR>
 autocmd FileType markdown :map  <localLeader>si "iyy
 autocmd FileType markdown :map  <localLeader>gi "ip^<C-a>"iyy^

@@ -1,4 +1,3 @@
-urxvtcd &
 xmodmap "/home/serg/.Xmodmap" &
 play ~/Docs/sounds/desktop-login.ogg &
 # lxpanelx &
@@ -20,4 +19,5 @@ udiskie --tray &
 # keepassx &
 # goldendict &
 # sdcv &
+~/bin/urxvt-run.sh &
 exec /usr/bin/fluxbox -log "/home/serg/.fluxbox/log"
