@@ -1,18 +1,18 @@
 # echo zenv
 
 [ -z "$HOSTNAME" ] && export HOSTNAME=`uname -n`
-[ -z "$DOMAINNAME" ] && export HOSTNAME=`domainname -d`
+# [ -z "$DOMAINNAME" ] && export HOSTNAME=`domainname -d`
 export WINEARCH="win32"
 export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
 export NODE_PATH=/usr/include/node:/usr/lib64/node_modules
-export EDITOR="/usr/bin/nvim"
+export EDITOR="/usr/bin/vim"
 export PAGER=less
 export MAILCHECK=60
 export MAILPATH="$HOME/.mail/new?'You have new mail!'"
 export MAILDIR="$HOME/.mail"
 export DE='generic'
 export LESS='-RQM'
-export BROWSER='firefox-bin'
+export BROWSER='firefox'
 # export SHELL=/bin/zsh
 export PATH="$HOME/bin:/usr/local/bin:$PATH"
 

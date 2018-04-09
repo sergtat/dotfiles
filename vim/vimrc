@@ -5,7 +5,12 @@
 "
 " Author: Serg Tatarnikov <sergeytat@gmail.com>
 " Source: http://github.com/sergtat/dotfiles
-" Requirements: Vim8[python3], Python3, neovim pyton client (https://github.com/neovim/python-client)
+" Requirements:
+" Vim8[python3],
+" Python3,
+" neovim pyton client (https://github.com/neovim/python-client)
+" sudo access
+" git
 "
 " Maps Table {{{
 " }}}
@@ -36,7 +41,7 @@ endif
 set runtimepath+=~/.vim/dein/repos/github.com/Shougo/dein.vim
 if dein#load_state(expand('~/.vim/dein'))
   call dein#begin(expand('~/.vim/dein'))
-
+" Plugins {{{
   call dein#add('Shougo/dein.vim')
   call dein#add('Shougo/denite.nvim')
   call dein#add('Shougo/deoplete.nvim', {'on_i': 1})
@@ -78,7 +83,7 @@ if dein#load_state(expand('~/.vim/dein'))
   call dein#add ('posva/vim-vue', {'on_ft': 'vue'})
   call dein#add ('ap/vim-css-color', {'on_ft': 'css'})
   call dein#add ('scrooloose/syntastic')
-
+" }}}
   call dein#end()
   call dein#save_state()
 endif
@@ -91,8 +96,8 @@ if dein#check_install()
 endif
 " }}}
 " PLUGINS Setup {{{
-call deoplete#enable()
-" let g:deoplete#enable_at_startup = 1
+" call deoplete#enable()
+let g:deoplete#enable_at_startup = 1
 " neosnippet {{{
 " Plugin key-mappings.
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
@@ -135,6 +140,14 @@ let g:airline_symbols.whitespace = 'Ξ'
 " }}}
 " vim-xkbswitch {{{
 if has("gui_running")
+  if (!filereadable(expand("/usr/local/lib/libxkbswitch.so")))
+    call system(expand("mkdir -p $HOME/temp_xkb && cd $HOME/temp_xkb"))
+    call system(expand("git clone https://github.com/ierton/xkb-switch.git && cd xkb-switch"))
+    call system(expand("mkdir build && cd build"))
+    call system(expand("cmake .. && make"))
+    call system(expand("sudo make install"))
+    call system(expand("cd && rm -rf ~/temp_xkb"))
+  endif
   let g:XkbSwitchEnabled = 1
   let g:XkbSwitchLib = '/usr/local/lib/libxkbswitch.so'
   let g:XkbSwitchNLayout = 'us'
@@ -185,7 +198,7 @@ au! BufRead,BufNewFile *.json set filetype=json
 " }}}
 " }}}
 " END PLUGINS Setup }}}
-" VIM Setup {{{ ===============================================================
+" VIM Setup {{{
 " Disable Uganda children {{{
 set shortmess+=I
 " }}}
@@ -194,18 +207,24 @@ set mouse=a
 set mousetime=200
 " }}}
 " Colorscheme {{{
-set background=dark            " set a dark background
 if &term == "linux"
-    " colorscheme solarized
-    colorscheme peachpuff
+  set background=light
 else
-    colorscheme gruvbox
+  set background=dark
 endif
-highlight Comment ctermbg=235 ctermfg=lightgreen cterm=italic gui=italic
+
+if &term == "linux"
+    colorscheme default
+else
+    colorscheme default
+endif
+
+" highlight Comment ctermbg=235 ctermfg=000 cterm=italic gui=italic
 highlight htmlItalic cterm=Italic term=italic gui=italic
 highlight htmlBoldItalic cterm=BoldItalic term=BoldItalic gui=BoldItalic
 highlight markdownItalic cterm=Italic term=italic gui=italic
 highlight markdownBoldItalic cterm=BoldItalic term=BoldItalic gui=BoldItalic
+
 " Toggle Background Function
 function! ToggleBackground()
 if (&background=='dark')
@@ -214,6 +233,7 @@ else
     set background=dark
 endif
 endfunction
+
 command! Togbg call ToggleBackground()
 nnoremap <Leader>bg :Togbg<CR>
 vnoremap <Esc><Leader>bg :Togbg<CR>
@@ -255,10 +275,11 @@ set laststatus=2
 set ruler
 set showcmd
 set wildmenu
-set cursorline                  " highlight the line under the cursor
+" set cursorline                  " highlight the line under the cursor
 set fillchars+=vert:│           " better looking for windows separator
 set ttyfast                     " better screen redraw
 set title                       " set the terminal title to the current file
+" set noswapfile
 
 if !&scrolloff
   set scrolloff=5
@@ -332,8 +353,6 @@ if v:version >= 703
     set undoreload=10000
   endif
 endif
-" }}}
-" set noswapfile
 " }}}
 " Indent {{{
 set autoindent
@@ -516,8 +535,8 @@ augroup END
 " }}}
 " END VIM SETUP }}}
 " ABBREVIATE {{{
-iab bb **Ингридиенты**<CR>
-iab ии **Ингридиенты**<CR>
+iab bb **Ингредиенты**<CR>
+iab ии **Ингредиенты**<CR>
 iab gg **Приготовление**<CR>
 iab пп **Приготовление**<CR>
 " }}}

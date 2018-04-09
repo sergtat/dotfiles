@@ -1,5 +1,5 @@
 # echo zshrc.local
 
 # HASH
-hash -d wiki="$HOME/repo/wiki/pages/"
-hash -d iwiki="$HOME/repo/wiki/images/"
+# hash -d wiki="$HOME/repo/wiki/pages/"
+# hash -d iwiki="$HOME/repo/wiki/images/"

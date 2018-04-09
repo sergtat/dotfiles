@@ -5,3 +5,5 @@
 *.bak
 =*
 nvim/plugged/*
+vim/swap/*
+fluxbox/log

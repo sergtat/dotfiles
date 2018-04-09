@@ -1,23 +1,24 @@
 xmodmap "/home/serg/.Xmodmap" &
-play ~/Docs/sounds/desktop-login.ogg &
-# lxpanelx &
-fbpanel &
+xrdb ~/.Xresources
+urxvtd -q -o -f
+# play ~/Docs/sounds/desktop-login.ogg &
+lxpanel &
+# fbpanel &
 numlockx &
-unclutter -idle 2 &
-parcellite &
+# unclutter -idle 2 &
+# parcellite &
 xbindkeys &
-fbsetbg -f ~/Docs/backgrounds/1200x1024/welke-winterreis.jpg &
-idesk &
-conky &
-udiskie --tray &
+# fbsetbg -f ~/Docs/backgrounds/1200x1024/welke-winterreis.jpg &
+# idesk &
+# conky &
+# udiskie --tray &
 # dbus-launch nm-applet &
 # ~/bin/urxvt-run.sh &
-# firefox-bin &
-/opt/firefox/firefox &
+firefox &
 # google-chrome-beta &
 # KeeWeb &
 # keepassx &
 # goldendict &
 # sdcv &
-~/bin/urxvt-run.sh &
+urxvtc &
 exec /usr/bin/fluxbox -log "/home/serg/.fluxbox/log"
