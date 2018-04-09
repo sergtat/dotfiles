@@ -36,8 +36,6 @@ alias pgrep='pgrep -l'
 alias rgrep='grep -r'
 # git
 alias git='hub'
-alias got='git'
-alias get='git'
 alias gs='git status'
 alias ga='git add'
 alias gal='git add .'
