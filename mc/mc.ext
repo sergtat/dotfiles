@@ -12,13 +12,22 @@
 #          i.e. matches all the files *desc . Example: .tar matches *.tar;
 #          if it doesn't start with a dot, it matches only a file of that name)
 #
+#    shell/i (desc is, when starting with a dot, any extension (no wildcars),
+#          The same as shell but with case insensitive.
+#
 #    regex (desc is an extended regular expression)
 #          Please note that we are using the GNU regex library and thus
 #          \| matches the literal | and | has special meaning (or) and
 #          () have special meaning and \( \) stand for literal ( ).
 #
+#    regex/i (desc is an extended regular expression)
+#          The same as regex but with case insensitive.
+#
 #    type  (file matches this if `file %f` matches regular expression desc
 #          (the filename: part from `file %f` is removed))
+#
+#    type/i (file matches this if `file %f` matches regular expression desc)
+#          The same as type but with case insensitive.
 #
 #    directory (matches any directory matching regular expression desc)
 #
@@ -40,7 +49,9 @@
 # command is any one-line shell command, with the following substitutions:
 #
 # %% -> % character
-# %p -> name of the current file (without path, but pwd is its path)
+# %p -> name of the current file (without path, but pwd is its path).
+#       Also provided to external application as MC_EXT_BASENAME
+#       global variable
 # %f -> name of the current file. Unlike %p, if file is located on a
 #	non-local virtual filesystem, i.e. either tarfs or ftpfs,
 #	then the file will be temporarily copied into a local directory
@@ -48,15 +59,22 @@
 #	If you don't want to get a local copy and want to get the
 #	virtual fs path (like /#ftp:ftp.cvut.cz/pub/hungry/xword), then
 #	use %d/%p instead of %f.
+#       Also provided to external application as MC_EXT_FILENAME
+#       global variable
 # %d -> name of the current directory (pwd, without trailing slash)
+#       Also provided to external application as MC_EXT_CURRENTDIR
+#       global variable
 # %s -> "selected files", i.e. space separated list of tagged files if any
-#       or name of the current file
+#       or name of the current file.
+#       Also provided to external application as MC_EXT_SELECTED
+#       global variable
 # %t -> list of tagged files
+#       Also provided to external application as MC_EXT_ONLYTAGGED
+#       global variable
 # %u -> list of tagged files (they'll be untaged after the command)
 #
 # (If these 6 letters are in uppercase, they refer to the other panel.
 # But you shouldn't have to use it in this file.)
-#
 #
 # %cd -> the rest is a path mc should change into (cd won't work, since it's
 #	a child process).  %cd handles even vfs names.
@@ -193,11 +211,28 @@ shell/.cpio
 	Open=%cd %p/ucpio://
 	View=%view{ascii} cpio -itv < %f 2>/dev/null
 
+shell/.cpio
+	Open=%cd %p/ucpio://
+	View=%view{ascii} cpio -itv < %f 2>/dev/null
+
 # ls-lR
 regex/(^|\.)ls-?lR(\.gz|Z|bz2)$
 	Open=%cd %p/lslR://
 
+# 7zip archives (they are not man pages)
+regex/\.(7z|7Z)$
+	Open=%cd %p/u7z://
+	View=%view{ascii} 7za l %f 2>/dev/null
+
+shell/.cpio
+	Open=%cd %p/ucpio://
+	View=%view{ascii} cpio -itv < %f 2>/dev/null
+
 # patch
+shell/.cpio
+	Open=%cd %p/ucpio://
+	View=%view{ascii} cpio -itv < %f 2>/dev/null
+
 regex/\.(diff|patch)(\.bz2)$
 	Open=%cd %p/patchfs://
 	View=%view{ascii} bzip2 -dc %f 2>/dev/null
@@ -206,6 +241,9 @@ regex/\.(diff|patch)(\.(gz|Z))$
 	Open=%cd %p/patchfs://
 	View=%view{ascii} gzip -dc %f 2>/dev/null
 
+# ls-lR
+regex/(^|\.)ls-?lR(\.gz|Z|bz2)$
+	Open=%cd %p/lslR://
 regex/\.(diff|patch)$
 	Open=%cd %p/patchfs://
 	View=%view{ascii} /bin/cat %f 2>/dev/null
@@ -239,6 +277,7 @@ regex/\.u?deb$
 shell/.debd
         Open=%cd %p/debd://
         View=%view{ascii} dpkg -s `echo %p | sed 's/\([0-9a-z.-]*\).*/\1/'`
+
 # apt
 shell/.deba
         Open=%cd %p/deba://
@@ -249,11 +288,6 @@ regex/\.([iI][sS][oO])$
 	Open=%cd %p/iso9660://
 	View=%view{ascii} isoinfo -l -i %f
 
-# 7zip archives (they are not man pages)
-regex/\.(7z|7Z)$
-	Open=%cd %p/u7z://
-	View=%view{ascii} 7za l %f 2>/dev/null
-
 # Mailboxes
 type/^ASCII\ mail\ text
 	Open=%cd %p/mailfs://
@@ -261,24 +295,20 @@ type/^ASCII\ mail\ text
 
 ### Sources ###
 
-# C
-shell/.c
+# C/C++
+regex/i/\.(c|cc|cpp)$
+	Include=editor
+
+# C/C++ header
+regex/i/\.(h|hh|hpp)$
 	Include=editor
 
 # Fortran
-shell/.f
+shell/i/.f
 	Include=editor
 
-# Header
-regex/\.(h|hpp)$
-	Include=editor
-
-# Asm
-shell/.s
-	Include=editor
-
-# C++
-regex/\.(C|cc|cpp)$
+# Assembler
+regex/i/\.(s|asm)$
 	Include=editor
 
 include/editor
@@ -304,6 +334,10 @@ type/^Info\ text
 
 shell/.info
 	Open=info -f %f
+
+# Exception: .3gp are video files not manual pages
+shell/i/.3gp
+	Include=video
 
 # Manual page
 regex/(([^0-9]|^[^\.]*)\.([1-9][A-Za-z]*|[ln])|\.man)$
@@ -343,6 +377,14 @@ regex/([^0-9]|^[^\.]*)\.([1-9][A-Za-z]*|[ln])\.bz2$
 	Open=case %d/%f in */log/*|*/logs/*) bzip2 -dc %f ;; *) bzip2 -dc %f | nroff -c -Tlatin1 -mandoc ;; esac | %var{PAGER:more}
 	View=%view{ascii,nroff} case %d/%f in */log/*|*/logs/*) bzip2 -dc %f ;; *) bzip2 -dc %f | nroff -c -Tlatin1 -mandoc ;; esac
 
+regex/([^0-9]|^[^\.]*)\.([1-9][A-Za-z]*|[ln])\.lz$
+	Open=/usr/lib/mc/ext.d/text.sh open man.lz %var{PAGER:more}
+	View=%view{ascii,nroff} /usr/lib/mc/ext.d/text.sh view man.lz %var{PAGER:more}
+
+regex/([^0-9]|^[^\.]*)\.([1-9][A-Za-z]*|[ln])\.lz4$
+	Open=/usr/lib/mc/ext.d/text.sh open man.lz4 %var{PAGER:more}
+	View=%view{ascii,nroff} /usr/lib/mc/ext.d/text.sh view man.lz4 %var{PAGER:more}
+
 regex/([^0-9]|^[^\.]*)\.([1-9][A-Za-z]*|[ln])\.lzma$
 	Open=case %d/%f in */log/*|*/logs/*) lzma -dc %f ;; *) lzma -dc %f | nroff -c -Tlatin1 -mandoc ;; esac | %var{PAGER:more}
 	View=%view{ascii,nroff} case %d/%f in */log/*|*/logs/*) lzma -dc %f ;; *) lzma -dc %f | nroff -c -Tlatin1 -mandoc ;; esac
@@ -361,12 +403,19 @@ type/^GIF
 	Include=image
 
 type/^JPEG
+	View=%view{ascii} /usr/lib/mc/ext.d/image.sh view jpeg
 	Include=image
 
 type/^PC\ bitmap
 	Include=image
 
 type/^PNG
+	Include=image
+
+type/^JNG
+	Include=image
+
+type/^MNG
 	Include=image
 
 type/^TIFF
@@ -497,6 +546,13 @@ regex/\.([oO][gG][mM])$
 regex/\.([mM]4[vV])$
 	Include=video
 
+# WebM
+shell/i/.webm
+    Include=video
+
+type/WebM
+    Include=video
+
 regex/\.([rR][aA]?[mM])$
 	Open=(realplay %f >/dev/null 2>&1 &)
 
@@ -610,6 +666,10 @@ regex/\.(fb2|FB2)$
 	Open=if [ x$DISPLAY = x ]; then fbless %f; else (ob %f &>/dev/null &); fi
 regex/\.(fb2|FB2).zip$
 	Open=if [ x$DISPLAY = x ]; then fbless %f; else (ob %f &>/dev/null &); fi
+regex/i/\.(epub|mobi)$
+	Open=/usr/lib/mc/ext.d/doc.sh open epub
+	View=%view{ascii} /usr/lib/mc/ext.d/doc.sh view epub
+
 
 ### Miscellaneous ###
 # torrent
