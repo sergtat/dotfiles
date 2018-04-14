@@ -1,23 +1,21 @@
 xmodmap "/home/serg/.Xmodmap" &
 xrdb ~/.Xresources
 urxvtd -q -o -f
-# play ~/Docs/sounds/desktop-login.ogg &
+# play ~/Documents/sounds/desktop-login.ogg &
 lxpanel &
 # fbpanel &
 numlockx &
-# unclutter -idle 2 &
-# parcellite &
+unclutter -idle 2 &
+parcellite &
 xbindkeys &
-# fbsetbg -f ~/Docs/backgrounds/1200x1024/welke-winterreis.jpg &
+fbsetbg -a ~/Documents/backgrounds/1200x1024/default.jpg &
 # idesk &
 # conky &
 # udiskie --tray &
 # dbus-launch nm-applet &
-# ~/bin/urxvt-run.sh &
 firefox &
 # google-chrome-beta &
 # KeeWeb &
-# keepassx &
 # goldendict &
 # sdcv &
 urxvtc &
