@@ -1,7 +1,7 @@
 xmodmap "/home/serg/.Xmodmap" &
 xrdb ~/.Xresources
 urxvtd -q -o -f
-# play ~/Documents/sounds/desktop-login.ogg &
+play ~/Documents/sounds/ubuntu/stereo/desktop-login.ogg > /dev/null 2>&1 &
 lxpanel &
 # fbpanel &
 numlockx &

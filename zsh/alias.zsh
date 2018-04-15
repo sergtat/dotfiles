@@ -97,7 +97,7 @@ alias xdg-user-dirs-update="LANG=C xdg-user-dirs-update"
 alias xdg-user-dirs="LANG=C xdg-user-dirs"
 alias mutt='neomutt'
 alias vim='nvim'
+alias svim='sudo nvim'
 
 # Don't define aliases in plain Bourne shell
 [ -n "${BASH_VERSION}${KSH_VERSION}${ZSH_VERSION}" ] || return 0
-

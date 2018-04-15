@@ -99,13 +99,17 @@
       [restart] (mwm) {mwm} 
       [restart] (metacity) {metacity} 
 [end]
+[end]
       [exec] (Lock screen) {xscreensaver-command -lock} 
       [commanddialog] (Fluxbox Command) 
       [reconfig] (Reload config) 
-      [restart] (Restart) 
       [exec] (About) {(fluxbox@EXEEXT@ -v; fluxbox@EXEEXT@ -info | sed 1d) | xmessage -file - -center} 
       [separator] 
-      [exit] (Exit) 
+      [exec] (Restart Fluxbox) {play ~/Documents/sounds/ubuntu/stereo/service-logout.ogg > /dev/null 2>&1 && fluxbox-remote restart}
+      [exec] (Exit to login) {play ~/Documents/sounds/ubuntu/stereo/desktop-logout.ogg > /dev/null 2>&1 && fluxbox-remote exit}
+      [exec] (Reboot) {play ~/Documents/sounds/ubuntu/stereo/service-logout.ogg > /dev/null 2>&1 && sudo /sbin/reboot}
+      [exec] (Power off) {play ~/Documents/sounds/ubuntu/stereo/desktop-logout.ogg > /dev/null 2>&1 && sudo /sbin/poweroff}
+      [end]
 [end]
 [endencoding]
 [end]
