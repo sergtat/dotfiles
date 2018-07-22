@@ -6,6 +6,8 @@
 # to native line endings on checkout.
 *.c text
 *.h text
+*.txt text
+*.md text
 
 # Denote all files that are truly binary and should not be modified.
 *.png binary
@@ -23,3 +25,5 @@
 *.tbz binary
 *.dat binary
 *.key binary
+*.odt binary
+*.ods binary
