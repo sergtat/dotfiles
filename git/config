@@ -67,3 +67,5 @@
   insteadOf = "github:"
 [help]
   autocorrect = 1
+[init]
+	templatedir = ~/.config/git/templates
