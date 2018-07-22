@@ -13,6 +13,7 @@ if [[ "$ENABLE_CORRECTION" == "true" ]]; then
 	alias vim='nocorrect vim'
 	alias pgrep='nocorrect pgrep'
 	alias pkill='nocorrect pkill'
+	alias gnupg='nocorrect gnupg'
 
 	setopt correct_all
 fi

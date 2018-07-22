@@ -2,8 +2,9 @@ xmodmap "/home/serg/.Xmodmap" &
 xrdb ~/.Xresources
 urxvtd -q -o -f
 play ~/Documents/sounds/ubuntu/stereo/desktop-login.ogg > /dev/null 2>&1 &
-lxpanel &
-# fbpanel &
+# lxpanel &
+fbpanel &
+# xfce4-panel &
 numlockx &
 unclutter -idle 2 &
 parcellite &

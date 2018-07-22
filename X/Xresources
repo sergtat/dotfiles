@@ -34,10 +34,10 @@ soft contrast: *background: #32302f
 
 !*.font: -*-terminesspowerline-medium-*-*-*-18-*-*-*-*-*-*-*
 !*.boldfont: -*-terminesspowerline-bold-*-*-*-18-*-*-*-*-*-*-*
-*.font: xft:Ubuntu Mono derivative Powerline:style=Normal:pixelsize=16
-*.boldfont: xft:Ubuntu Mono derivative Powerline:style=Bold:pixelsize=16
-*.italicfont: xft:Ubuntu Mono derivative Powerline:style=Italic:pixelsize=16
-*.boldItalicfont: xft:Ubuntu Mono derivative Powerline:style=Bold Italic:pixelsize=16
+URxvt.font: xft:Ubuntu Mono derivative Powerline:style=Normal:pixelsize=16
+Urxvt.boldfont: xft:Ubuntu Mono derivative Powerline:style=Bold:pixelsize=16
+URxvt.italicfont: xft:Ubuntu Mono derivative Powerline:style=Italic:pixelsize=16
+URxvt.boldItalicfont: xft:Ubuntu Mono derivative Powerline:style=Bold Italic:pixelsize=16
 
 *.font-size.step: 2
 

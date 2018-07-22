@@ -14,7 +14,7 @@ export MAILDIR="$HOME/.mail"
 export DE='generic'
 export LESS='-RQM'
 export BROWSER='firefox'
-# export SHELL=/bin/zsh
+export GPGKEY="94021380C07675DE"
 export PATH="$HOME/bin:/usr/local/bin:$PATH"
 
 #---- SVN -----------------#

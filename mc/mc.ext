@@ -403,8 +403,8 @@ type/^GIF
 	Include=image
 
 type/^JPEG
-	View=%view{ascii} /usr/lib/mc/ext.d/image.sh view jpeg
 	Include=image
+	# View=%view{ascii} /usr/lib/mc/ext.d/image.sh view jpeg
 
 type/^PC\ bitmap
 	Include=image
@@ -450,8 +450,8 @@ regex/\.([jJ][pP][eE]?[gG])$
 	Include=image
 
 include/image
-	#Open=if [ "$DISPLAY" = "" ]; then zgv %f; else (gqview %f &); fi
-	Open=if [ -n $DISPLAY ]; then (gqview -t -f %f &>/dev/null &); else zgv %f; fi
+	Open=if [ "$DISPLAY" = "" ]; then fbi %f; else (ida %f &); fi
+	# Open=if [ -n $DISPLAY ]; then (gqview -t -f %f &>/dev/null &); else zgv %f; fi
 	View=%view{ascii} mediainfo "%f"
 
 
@@ -478,7 +478,7 @@ regex/\.([mM][pP]3)$
         Include=sound
 
 regex/\.([oO][gG][gG|aA|vV|xX])$
-	Open=if [ "$DISPLAY" = "" ]; then ogg123 %f; else (xmms %f >/dev/null 2>&1 &); fi
+	Open=if [ "$DISPLAY" = "" ]; then ogg123 %f; else (play %f >/dev/null 2>&1 &); fi
 	#View=%view{ascii} ogginfo %s
         Include=sound
 
@@ -559,7 +559,7 @@ regex/\.([rR][aA]?[mM])$
 include/video
 	#Open=(smplayer2 %f >/dev/null 2>&1 &)
 	# Open=(vlc %f >/dev/null 2>&1 &)
-	Open=(mplayer %f >/dev/null 2>&1 &)
+	Open=(smplayer %f >/dev/null 2>&1 &)
 	#Open=(gtv %f >/dev/null 2>&1 &)
 	#Open=(xanim %f >/dev/null 2>&1 &)
 	View=%view{ascii} mediainfo %f -

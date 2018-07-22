@@ -23,6 +23,7 @@ alias su-='su -'
 alias vim='nvim'
 alias v='nvim'
 alias nv='nvim'
+alias svim='sudo nvim'
 alias vimrc='nvim ~/.config/nvim/init.vim'
 alias vrc='nvim ~/.config/nvim/init.vim'
 alias lastlog='lastlog|grep -v \*'
@@ -72,6 +73,8 @@ fi
 alias eix-test-obsolete='LANG=C eix-test-obsolete'
 
 # systemd
+alias systemctl='systemctl --no-pager'
+alias journalctl='journalctl --no-pager'
 alias sc='systemctl'
 alias scs='systemctl start'
 alias sce='systemctl enable'
@@ -96,8 +99,6 @@ alias psworld="ps f -g`pgrep world`"
 alias xdg-user-dirs-update="LANG=C xdg-user-dirs-update"
 alias xdg-user-dirs="LANG=C xdg-user-dirs"
 alias mutt='neomutt'
-alias vim='nvim'
-alias svim='sudo nvim'
 
 # Don't define aliases in plain Bourne shell
 [ -n "${BASH_VERSION}${KSH_VERSION}${ZSH_VERSION}" ] || return 0
