@@ -295,7 +295,7 @@ if &shell =~# 'zsh$'
 endif
 
 set autoread
-set fileformats+=mac
+set fileformats=unix
 
 if &history < 1000
   set history=1000
