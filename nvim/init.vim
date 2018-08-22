@@ -53,7 +53,12 @@ if dein#load_state(expand('~/.config/nvim/dein'))
   endif
   call dein#add ('othree/eregex.vim', {'on_func': 'eregex#toggle'})
   call dein#add ('vim-scripts/TaskList.vim')
-  call dein#add ('Shougo/neosnippet.vim')
+  call dein#add('Shougo/defx.nvim')
+  if !has('nvim')
+    call dein#add('roxma/nvim-yarp')
+    call dein#add('roxma/vim-hug-neovim-rpc')
+  endif
+  " call dein#add ('Shougo/neosnippet.vim')
   call dein#add ('Shougo/neosnippet-snippets')
   call dein#add ('honza/vim-snippets')
   call dein#add ('scrooloose/nerdtree', {'on_cmd': 'NERDTreeToggle'})
@@ -246,6 +251,7 @@ set nrformats-=octal
 set ttimeout
 set ttimeoutlen=100
 set incsearch
+set ignorecase
 
 " Use <C-L> to clear the highlighting of :set hlsearch.
 if maparg('<C-L>', 'n') ==# ''
@@ -407,17 +413,19 @@ autocmd FileType markdown :vnoremap <localLeader>- :s/^\s*/- /<CR> :nohlsearch<C
 autocmd FileType markdown :nmap <localLeader>> :s/^\s*/> / <CR> :nohlsearch <CR>
 autocmd FileType markdown :vmap <localLeader>> :s/^\s*/> / <CR> :nohlsearch <CR>
 autocmd FileType markdown :vmap <localLeader>n :s@^\s*@1. @<CR> gv :Numbered<CR> :nohlsearch<CR>
-autocmd FileType markdown :nmap <localLeader>ti ^i![<C-R>%]<LEFT><BS><BS><BS><RIGHT>( ~/repo/wiki-engine/public/images/Kulinar '<C-R>%')<LEFT><BS><LEFT><BS><BS><BS><ESC>^/'<CR><LEFT>i/
+" %%i
+autocmd FileType markdown :nmap <localLeader>ti ^i![<C-R>%]<LEFT><BS><BS><BS><RIGHT>( '<C-R>%')<LEFT><LEFT><BS><BS><BS><ESC>$%a./images/
 autocmd FileType markdown :map  <localLeader>di :%s@(.*/images@(/images@<CR> :nohlsearch<CR>
 autocmd FileType markdown :map  <localLeader>si "iyy
 autocmd FileType markdown :map  <localLeader>gi "ip^<C-a>"iyy^
-autocmd FileType markdown :nmap <localLeader>tt o<CR>**Источник**:<Space>
+autocmd FileType markdown :nmap <localLeader>ts o<CR>**Источник**:<Space>
+autocmd FileType markdown :nmap <localLeader>tt /^# <CR>$a<CR><CR>[[toc]]<CR><ESC> :nohlsearch<CR>
 autocmd FileType markdown :nmap <localLeader>tn ggi# <C-R>%<BS><BS><CR><CR><ESC>
 autocmd FileType markdown :vmap <localLeader>` :s@\%V\(.*\)\%V@`\1`@ <Enter> :nohlsearch <Enter>
-autocmd FileType markdown :vmap <localLeader>[ :s@\%V\(.*\)\%V@[\1]()@ <Enter> :nohlsearch <Enter>
-autocmd FileType markdown :nmap <localLeader>y ^i**Видео**:<CR><CR><div class="youtube" id="" style="width: 560px; height: 315px;"></div><CR><ESC>
+autocmd FileType markdown :vmap <localLeader>[ :s@\%V\(.*\)\%V@[\1](!!)@<CR><ESC>/!!<Enter><DEL><DEL> :nohlsearch <Enter> i
+autocmd FileType markdown :nmap <localLeader>y ^i**Видео**:<CR><CR><iframe width="740" height="420" src="http://www.youtube.com/embed/?rel=0" frameborder="0" allowfullscreen></iframe><ESC>^/?rel<CR> :nohlsearch <CR> i
+" autocmd FileType markdown :nmap <localLeader>y ^i**Видео**:<CR><CR><div class="youtube" id="" style="width: 560px; height: 315px;"></div><CR><ESC>
 autocmd FileType markdown let g:airline#extensions#whitespace#enabled = 0
-
 " }}}
 " }}}
 " Line number {{{
@@ -519,6 +527,17 @@ augroup END
 
 " }}}
 " END VIM SETUP }}}
+" Templates {{{
+augroup templates
+    autocmd!
+    autocmd BufNewFile *.md 0r $HOME/.config/nvim/templates/template.md
+    " autocmd BufNewFile *.sh 0r $HOME/.config/nvim/templates/template.sh
+    " autocmd BufNewFile *.pl 0r $HOME/.config/nvim/templates/template.pl
+    " autocmd BufNewFile *.c 0r $HOME/.config/nvim/templates/template.c
+    " autocmd BufNewFile *.go 0r $HOME/.config/nvim/templates/template.go
+    " autocmd BufNewFile *.py 0r $HOME/.config/nvim/templates/template.py
+augroup END
+" }}}
 " ABBREVIATE {{{
 iab bb **Ингредиенты**<CR>
 iab ии **Ингредиенты**<CR>

@@ -1,4 +1,3 @@
 # echo zlogout
-# sleep 2
-sudo tomb slam
+[[ `grep tomb /etc/mtab` ]] && sudo tomb slam
 # clear
