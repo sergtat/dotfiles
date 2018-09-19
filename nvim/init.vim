@@ -414,7 +414,7 @@ autocmd FileType markdown :nmap <localLeader>> :s/^\s*/> / <CR> :nohlsearch <CR>
 autocmd FileType markdown :vmap <localLeader>> :s/^\s*/> / <CR> :nohlsearch <CR>
 autocmd FileType markdown :vmap <localLeader>n :s@^\s*@1. @<CR> gv :Numbered<CR> :nohlsearch<CR>
 " %%i
-autocmd FileType markdown :nmap <localLeader>ti ^i![<C-R>%]<LEFT><BS><BS><BS><RIGHT>( '<C-R>%')<LEFT><LEFT><BS><BS><BS><ESC>$%a./images/
+autocmd FileType markdown :nmap <localLeader>ti ^i![<C-R>%]<LEFT><BS><BS><BS><RIGHT>(./images%% '<C-R>%<BS><BS><BS>')<ESC>^/%%<CR><DEL><DEL>i/
 autocmd FileType markdown :map  <localLeader>di :%s@(.*/images@(/images@<CR> :nohlsearch<CR>
 autocmd FileType markdown :map  <localLeader>si "iyy
 autocmd FileType markdown :map  <localLeader>gi "ip^<C-a>"iyy^
@@ -484,30 +484,29 @@ augroup END
 let g:bufcleaner_max_save = 2
 
 command! -bar -nargs=? CleanBuffers call s:cleanBuffers(<f-args>)
+
 function! s:cleanBuffers(...) abort
-let force = a:0 >= 1 && a:1 ==# '-f' ? 1 : 0
-redir => bufs
-silent! buffers
-redir END
-
-let hidden = []
-for buf in map(split(bufs, '\n'), 'split(v:val)')
-let bufnr = buf[0] + 0
-let flags = matchstr(join(buf[1:]), '^.*\ze\s\+"')
-let mod = substitute(flags, '\s*', '', 'g')
-let hide = mod ==# 'h' || mod ==# 'h+'
-  \ && (force || input(printf("\n%s not saved.\nDelete anyway? [Y]es, (N)o: ",
-  \ bufname(bufnr))) =~? '^y\%[es]$')
-if hide
-  call add(hidden, bufnr)
-endif
-endfor
-
-let saved = get(g:, 'bufcleaner_max_save', 2)
-let target = len(hidden) > saved ? join(hidden[0:-saved-1], ' ') : ''
-if !empty(target)
-silent! execute 'bwipeout!' target
-endif
+  let force = a:0 >= 1 && a:1 ==# '-f' ? 1 : 0
+  redir => bufs
+  silent! buffers
+  redir END
+  let hidden = []
+  for buf in map(split(bufs, '\n'), 'split(v:val)')
+    let bufnr = buf[0] + 0
+    let flags = matchstr(join(buf[1:]), '^.*\ze\s\+"')
+    let mod = substitute(flags, '\s*', '', 'g')
+    let hide = mod ==# 'h' || mod ==# 'h+'
+      \ && (force || input(printf("\n%s not saved.\nDelete anyway? [Y]es, (N)o: ",
+      \ bufname(bufnr))) =~? '^y\%[es]$')
+    if hide
+      call add(hidden, bufnr)
+    endif
+  endfor
+  let saved = get(g:, 'bufcleaner_max_save', 2)
+  let target = len(hidden) > saved ? join(hidden[0:-saved-1], ' ') : ''
+  if !empty(target)
+    silent! execute 'bwipeout!' target
+  endif
 endfunction
 
 augroup buffer-cleaner
@@ -516,14 +515,17 @@ autocmd BufHidden * CleanBuffers
 augroup END
 
 " Autoexecute scripts
-" function ModeChange()
-"   if getline(1) =~ "^#!"
-"     if getline(1) =~ "bin/"
-"       silent !chmod a+x <afile>
-"     endif
-"   endif
-" endfunction
-" au BufWritePost * call ModeChange()
+function! ModeChange()
+  if getline(1) =~ "^#!"
+    if getline(1) =~ "bin/"
+      silent !chmod a+x <afile>
+    endif
+  endif
+endfunction
+au BufWritePost * call ModeChange()
+
+" Write buffer as root
+command! W :execute ':silent w !sudo tee % > /dev/null' | :edit!
 
 " }}}
 " END VIM SETUP }}}

@@ -27,3 +27,5 @@
 *.key binary
 *.odt binary
 *.ods binary
+*.ico binary
+*.flv binary

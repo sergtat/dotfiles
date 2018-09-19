@@ -8,6 +8,7 @@ fbpanel &
 numlockx &
 unclutter -idle 2 &
 parcellite &
+udiskie -a -n -t &
 xbindkeys &
 fbsetbg -a ~/Documents/backgrounds/1200x1024/default.jpg &
 # idesk &
