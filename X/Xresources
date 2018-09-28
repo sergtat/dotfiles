@@ -32,28 +32,33 @@ soft contrast: *background: #32302f
 !------------- FONTS --------------
 *.shading: 25
 
-!URxvt.font: -*-terminesspowerline-medium-*-*-*-18-*-*-*-*-*-*-*
-!URxvt.boldfont: -*-terminesspowerline-bold-*-*-*-18-*-*-*-*-*-*-*
+! URxvt.font: -*-terminesspowerline-medium-*-*-*-18-*-*-*-*-*-*-*
+! URxvt.boldfont: -*-terminesspowerline-bold-*-*-*-18-*-*-*-*-*-*-*
 
-!URxvt.font: xft:Ubuntu Mono derivative Powerline:style=Normal:pixelsize=16
-!Urxvt.boldfont: xft:Ubuntu Mono derivative Powerline:style=Bold:pixelsize=16
-!URxvt.italicfont: xft:Ubuntu Mono derivative Powerline:style=Italic:pixelsize=16
-!URxvt.boldItalicfont: xft:Ubuntu Mono derivative Powerline:style=Bold Italic:pixelsize=16
+! URxvt.font: xft:Ubuntu Mono derivative Powerline:style=Normal:pixelsize=16
+! Urxvt.boldfont: xft:Ubuntu Mono derivative Powerline:style=Bold:pixelsize=16
+! URxvt.italicfont: xft:Ubuntu Mono derivative Powerline:style=Italic:pixelsize=16
+! URxvt.boldItalicfont: xft:Ubuntu Mono derivative Powerline:style=Bold Italic:pixelsize=16
 
-!URxvt.font: xft:Monofur for Powerline:style=Normal:pixelsize=18
-!Urxvt.boldfont: xft:Monofur for Powerline:style=Bold:pixelsize=18
-!URxvt.italicfont: xft:Monofur for Powerline:style=Italic:pixelsize=18
-!URxvt.boldItalicfont: xft:Monofur for Powerline:style=Bold Italic:pixelsize=18
+URxvt.font: xft:Monofur for Powerline:style=Normal:pixelsize=18
+Urxvt.boldfont: xft:Monofur for Powerline:style=Bold:pixelsize=18
+URxvt.italicfont: xft:Monofur for Powerline:style=Italic:pixelsize=18
+URxvt.boldItalicfont: xft:Monofur for Powerline:style=Bold Italic:pixelsize=18
 
-URxvt.font: xft:Hack:style=Normal:pixelsize=18
-Urxvt.boldfont: xft:Hack-Bold:style=Bold:pixelsize=18
-URxvt.italicfont: xft:Hack-Italic:style=Italic:pixelsize=18
-URxvt.boldItalicfont: xft:Hack-BoldItalic:style=Bold Italic:pixelsize=18
+!URxvt.font: xft:Hack:style=Normal:pixelsize=18
+!Urxvt.boldfont: xft:Hack-Bold:style=Bold:pixelsize=18
+!URxvt.italicfont: xft:Hack-Italic:style=Italic:pixelsize=18
+!URxvt.boldItalicfont: xft:Hack-BoldItalic:style=Bold Italic:pixelsize=18
 
-*Vim.font: xft:Monofur for Powerline:style=Normal:pixelsize=18
-*Vim.boldfont: xft:Monofur for Powerline:style=Bold:pixelsize=18
-*Vim.italicfont: xft:Monofur for Powerline:style=Italic:pixelsize=18
-*Vim.boldItalicfont: xft:Monofur for Powerline:style=Bold Italic:pixelsize=18
+!URxvt.font: xft:Tinos for Powerline:style=Normal:pixelsize=18
+!Urxvt.boldfont: xft:Tinos Bold for Powerline-Bold:style=Bold:pixelsize=18
+!URxvt.italicfont: xft:Tinos Italic for Powerline-Italic:style=Italic:pixelsize=18
+!URxvt.boldItalicfont: xft:Tinos Bold Italic for Powerline-BoldItalic:style=Bold Italic:pixelsize=18
+
+!*Vim.font: xft:Monofur for Powerline:style=Normal:pixelsize=18
+!*Vim.boldfont: xft:Monofur for Powerline:style=Bold:pixelsize=18
+!*Vim.italicfont: xft:Monofur for Powerline:style=Italic:pixelsize=18
+!*Vim.boldItalicfont: xft:Monofur for Powerline:style=Bold Italic:pixelsize=18
 
 *.font-size.step: 2
 
