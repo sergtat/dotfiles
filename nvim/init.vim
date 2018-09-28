@@ -1,3 +1,4 @@
+
 "                  _ __ __   _(_)_ __ ___  _ __ ___
 "                 | '_  \ \ / / | '_ ` _ \| '__/ __|
 "                 | | | |\ V /| | | | | | | | | (__
@@ -58,7 +59,7 @@ if dein#load_state(expand('~/.config/nvim/dein'))
     call dein#add('roxma/nvim-yarp')
     call dein#add('roxma/vim-hug-neovim-rpc')
   endif
-  " call dein#add ('Shougo/neosnippet.vim')
+  call dein#add ('Shougo/neosnippet.vim')
   call dein#add ('Shougo/neosnippet-snippets')
   call dein#add ('honza/vim-snippets')
   call dein#add ('scrooloose/nerdtree', {'on_cmd': 'NERDTreeToggle'})
@@ -129,14 +130,19 @@ let g:neosnippet#enable_snipmate_compatibility = 1
 let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
 " }}}
 " vim-airline {{{
-let g:airline_theme='powerlineish'
+let g:airline_theme='light'
+let g:airline#extensions#tabline#enabled = 1
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
-let g:airline_left_sep = ''
-let g:airline_left_alt_sep = ''
-let g:airline_right_sep = ''
-let g:airline_right_alt_sep = ''
+let g:airline#extensions#tabline#left_sep = ''
+let g:airline#extensions#tabline#left_alt_sep = '|'
+" let g:airline_left_sep = ''
+" let g:airline_left_alt_sep = '>'
+let g:airline#extensions#tabline#right_sep = ''
+let g:airline#extensions#tabline#right_alt_sep = '|' 
+" let g:airline_right_sep = ''
+" let g:airline_right_alt_sep = '<'
 let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
@@ -233,7 +239,7 @@ vnoremap <Esc><Leader>bg :Togbg<CR>
 if &encoding ==# 'latin1' && has('gui_running')
   set encoding=utf-8
 endif
-set keymap=russian-jcukenwin
+" set keymap=russian-jcukenwin
 set iminsert=0
 set imsearch=0
 set helpheight=100

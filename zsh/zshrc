@@ -7,7 +7,8 @@ export ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-[[ ! $TERM = 'linux' ]] && ZSH_THEME="wezm+" || ZSH_THEME="gentoo"
+# [[ ! $TERM = 'linux' ]] && ZSH_THEME="wezm+" || ZSH_THEME="gentoo"
+ZSH_THEME="agnoster"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -50,7 +51,9 @@ ZSH_CUSTOM="$HOME/.zsh"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(adb bgnotify colorize copybuffer copydir copyfile dotenv git npm tmux z)
+
+plugins=(adb bgnotify colorize colored-man-pages copybuffer copydir copyfile dotenv git npm tmux yarn z)
+
 # plugins=(adb coffee cp encode64 git jsontools node npm sudo tmuxinator urltools vi-mode)
 # plugins=(git github gitfast git-flow vundle vi-mode sprunde screen redis-cli npm node extract encode64 urltools history-substring-search)
 
