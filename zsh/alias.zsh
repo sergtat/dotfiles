@@ -20,12 +20,15 @@ alias lsf='find . -maxdepth 1 -type f | sed "s@./@@"'
 alias ping='ping -c3'
 alias rm='rm -i'
 alias su-='su -'
-alias vim='nvim'
 alias v='nvim'
 alias nv='nvim'
+alias snv='sudo nvim'
 alias svim='sudo nvim'
+alias sv='sudo nvim'
 alias vimrc='nvim ~/.config/nvim/init.vim'
 alias vrc='nvim ~/.config/nvim/init.vim'
+alias zshrc="nvim ~/.zshrc"
+alias zrc="nvim ~/.zshrc"
 alias lastlog='lastlog|grep -v \*'
 alias dmesg='dmesg --color'
 # grep
@@ -93,8 +96,8 @@ alias tdc='timedatectl'
 
 # other
 alias urxvt-launcher="urxvt -geometry 80x3 -name 'bashrun' -e sh -c \"/bin/bash -i -t\""
-alias zshrc="nvim ~/.zshrc"
 alias reload='source ~/.zshrc'
+alias src='source ~/.zshrc'
 alias psworld="ps f -g`pgrep world`"
 alias xdg-user-dirs-update="LANG=C xdg-user-dirs-update"
 alias xdg-user-dirs="LANG=C xdg-user-dirs"
