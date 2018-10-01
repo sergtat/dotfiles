@@ -53,7 +53,7 @@
   lc = log -p -n1
   lol = log --pretty = oneline --abbrev-commit --graph --decorate
   ll = log --show-signature
-  hist = log --pretty = format:\"%h %ad | %s%d [%an]\" --graph --date = short
+  hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
   type = cat-file -t
   dump = cat-file -p
   ff = merge --ff-only
