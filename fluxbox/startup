@@ -1,7 +1,7 @@
 xmodmap "/home/serg/.Xmodmap" &
 xrdb ~/.Xresources
 urxvtd -q -o -f
-play ~/Documents/sounds/ubuntu/stereo/desktop-login.ogg > /dev/null 2>&1 &
+play ~/.fluxbox/sounds/ubuntu/stereo/desktop-login.ogg > /dev/null 2>&1 &
 # lxpanel &
 fbpanel &
 # xfce4-panel &
@@ -10,7 +10,7 @@ unclutter -idle 2 &
 parcellite &
 udiskie -a -n -t &
 xbindkeys &
-fbsetbg -a ~/Documents/backgrounds/1200x1024/default.jpg &
+fbsetbg -a ~/.fluxbox/backgrounds/1200x1024/default.jpg &
 # idesk &
 # conky &
 # udiskie --tray &

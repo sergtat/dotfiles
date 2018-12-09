@@ -449,7 +449,7 @@ regex/\.([jJ][pP][eE]?[gG])$
 	Include=image
 
 include/image
-	Open=if [ "$DISPLAY" = "" ]; then fbi %f; else (feh-browser %f &); fi
+	Open=if [ "$DISPLAY" = "" ]; then fbi %f; else (feh-browser %f >/dev/null 2>&1 &); fi
 	View=%view{ascii} mediainfo "%f"
 
 
@@ -485,6 +485,10 @@ regex/\.([sS][pP][xX]|[fF][lL][aA][cC])$
         Include=sound
 
 regex/\.([mM][iI][dD][iI]?|[rR][mM][iI][dD]?)$
+	Open=timidity %f
+        Include=sound
+
+regex/\.([kK][aA][rR])$
 	Open=timidity %f
         Include=sound
 
@@ -587,8 +591,11 @@ regex/\.[eE][pP][uU][bB]()$
 
 # html
 regex/i/\.html?$
-        Open=/usr/libexec/mc/ext.d/web.sh open html
-        View=%view{ascii} /usr/libexec/mc/ext.d/web.sh view html
+  
+  Open=/usr/libexec/mc/ext.d/web.sh open html
+        # View=%view{ascii} links -dump %f 2>/dev/null
+        # View=%view{ascii} w3m -dump %f 2>/dev/null
+        View=%view{ascii} lynx -dump -force_html %f
 
 
 # markdown

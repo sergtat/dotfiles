@@ -348,8 +348,13 @@ if v:version >= 703
     set undofile
     set undolevels=1000
     set undoreload=10000
+    set nobackup
   endif
 endif
+" }}}
+" Viewdir {{{
+let myViewDir = expand(nvimDir . '/view')
+let &viewdir = myViewDir
 " }}}
 " Indent {{{
 set autoindent
@@ -386,6 +391,10 @@ if has("autocmd")
   autocmd FileType markdown setlocal ts=2 sts=2 sw=2 et wrap
   autocmd FileType markdown setlocal conceallevel=0
 endif
+" }}}
+" set mkview {{{
+au BufWinLeave ?* mkview
+au BufWinEnter ?* silent loadview
 " }}}
 " MARKDOWN {{{
 " syn region markdownBoldItalic matchgroup=markdownInlineDelimiter
@@ -429,7 +438,7 @@ autocmd FileType markdown :nmap <localLeader>tt /^# <CR>$a<CR><CR>[[toc]]<CR><ES
 autocmd FileType markdown :nmap <localLeader>tn ggi# <C-R>%<BS><BS><CR><CR><ESC>
 autocmd FileType markdown :vmap <localLeader>` :s@\%V\(.*\)\%V@`\1`@ <Enter> :nohlsearch <Enter>
 autocmd FileType markdown :vmap <localLeader>[ :s@\%V\(.*\)\%V@[\1](!!)@<CR><ESC>/!!<Enter><DEL><DEL> :nohlsearch <Enter> i
-autocmd FileType markdown :nmap <localLeader>y ^i**Видео**:<CR><CR><iframe width="740" height="420" src="http://www.youtube.com/embed/?rel=0" frameborder="0" allowfullscreen></iframe><ESC>^/?rel<CR> :nohlsearch <CR> i
+autocmd FileType markdown :nmap <localLeader>y ^i<CR>**Видео**:<CR><CR>iframe width="740" height="420" src="http://www.youtube.com/embed/" frameborder="0" allowfullscreen allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"></iframe><CR><ESC><UP>^/embed<CR>/\/<CR> :nohlsearch <CR> a
 " autocmd FileType markdown :nmap <localLeader>y ^i**Видео**:<CR><CR><div class="youtube" id="" style="width: 560px; height: 315px;"></div><CR><ESC>
 autocmd FileType markdown let g:airline#extensions#whitespace#enabled = 0
 " }}}

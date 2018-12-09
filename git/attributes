@@ -49,6 +49,7 @@
 *.mp4   binary -text diff
 *.ods   binary -text diff
 *.odt   binary -text diff
+*.ogg   binary -text diff
 *.otf   binary -text diff
 *.pdf   binary -text diff
 *.phar  binary -text diff
