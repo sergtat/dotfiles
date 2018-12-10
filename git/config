@@ -29,8 +29,8 @@
   interactive = auto
 [color "branch"]
   current = yellow reverse
-  local = yellow
-  remote = green
+  local = yellow bold
+  remote = green bold
 [color "diff"]
   meta = yellow bold
   frag = magenta bold
@@ -38,8 +38,8 @@
   new = green bold
   whitespace = red reverse
 [color "status"]
-  added = yellow
-  changed = green
+  added = yellow bold
+  changed = green bold
   untracked = cyan
 [alias]
   aa = add .
