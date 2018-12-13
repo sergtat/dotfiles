@@ -40,18 +40,14 @@ alias pgrep='pgrep -l'
 alias rgrep='grep -r'
 # git
 alias git='hub'
-alias gst='git status'
-alias ga='git add'
 alias gal='git add .'
-alias gb='git branch'
-alias gc='git commit'
-alias gca='git commit -a --status'
+alias gca='git commit -v —a --status'
+alias gca!='git commit -v —a --amend'
 alias gcam='git commit -a --status -m'
-alias gcl='git clone'
-alias gco='git checkout'
-alias gcm='git checkout master'
-alias gcd='git checkout -b develop'
+alias gcod='git checkout develop'
+alias gcom='git checkout master'
 alias gd='git diff'
+alias gdc='git diff --cached'
 alias gf='git fetch'
 alias gh='git hist'
 alias gha='git hist --all'
@@ -60,6 +56,9 @@ alias gl='git log --pretty=oneline'
 alias gla='git hist --pretty=oneline --all'
 # alias gg='giggle &'
 # alias gx='gitx --all'
+gfr() { 
+    git reset @~ "$@" && git commit --amend --no-edit 
+}
 # color
 if [ -f /usr/bin/grc ]; then
   alias grc="grc --colour=auto"

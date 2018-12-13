@@ -52,7 +52,7 @@ ZSH_CUSTOM="$HOME/.zsh"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 
-plugins=(adb bgnotify colorize colored-man-pages command-not-found copybuffer copydir copyfile dotenv git npm tmux yarn z)
+plugins=(adb bgnotify colorize colored-man-pages copybuffer copydir copyfile dotenv git npm tmux yarn z)
 
 # plugins=(adb coffee cp encode64 git jsontools node npm sudo tmuxinator urltools vi-mode)
 # plugins=(git github gitfast git-flow vundle vi-mode sprunde screen redis-cli npm node extract encode64 urltools history-substring-search)
