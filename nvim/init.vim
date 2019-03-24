@@ -54,6 +54,7 @@ if dein#load_state(expand('~/.config/nvim/dein'))
   endif
   call dein#add ('othree/eregex.vim', {'on_func': 'eregex#toggle'})
   call dein#add ('vim-scripts/TaskList.vim')
+  call dein#add ('vim-scripts/restore_view.vim')
   call dein#add('Shougo/defx.nvim')
   if !has('nvim')
     call dein#add('roxma/nvim-yarp')
@@ -155,6 +156,12 @@ if has("gui_running")
   let g:XkbSwitchLib = '/usr/local/lib/libxkbswitch.so'
   let g:XkbSwitchNLayout = 'us'
 endif
+" }}}
+" restore_view {{{
+let myViewDir = expand(nvimDir . '/view')
+let &viewdir = myViewDir
+set viewoptions=cursor,folds,slash,unix
+" let g:skipview_files = ['*\.vim']
 " }}}
 " mhinz/vim-startify {{{
 let g:startify_list_order = [
@@ -352,10 +359,6 @@ if v:version >= 703
   endif
 endif
 " }}}
-" Viewdir {{{
-let myViewDir = expand(nvimDir . '/view')
-let &viewdir = myViewDir
-" }}}
 " Indent {{{
 set autoindent
 set smarttab
@@ -392,10 +395,6 @@ if has("autocmd")
   autocmd FileType markdown setlocal conceallevel=0
 endif
 " }}}
-" set mkview {{{
-au BufWinLeave ?* mkview
-au BufWinEnter ?* silent loadview
-" }}}
 " MARKDOWN {{{
 " syn region markdownBoldItalic matchgroup=markdownInlineDelimiter
 "   \ start="\%(\s\|_\|^\)\@<=_\*\*\%(\s\|\*\|$\)\@!" end="\%(\s\|\*\)\@<!\*\*_"
@@ -411,18 +410,18 @@ autocmd FileType markdown let maplocalleader='\'
 autocmd FileType markdown :set list | :set nospell
 autocmd FileType markdown let g:table_mode_corner="|"
 autocmd FileType markdown let b:AutoPairs={'(':')', '[':']', '{':'}',"'":"'",'"':'"'}
-autocmd FileType markdown :nmap <localLeader>1 :s@^@# @ <Enter> :nohlsearch <Enter>
-autocmd FileType markdown :nmap <localLeader>2 :s@^@## @ <Enter> :nohlsearch <Enter>
-autocmd FileType markdown :nmap <localLeader>3 :s@^@### @ <Enter> :nohlsearch <Enter>
-autocmd FileType markdown :nmap <localLeader>4 :s@^@#### @ <Enter> :nohlsearch <Enter>
-autocmd FileType markdown :nmap <localLeader>5 :s@^@##### @ <Enter> :nohlsearch <Enter>
-autocmd FileType markdown :nmap <localLeader>6 :s@^@###### @ <Enter> :nohlsearch <Enter>
-autocmd FileType markdown :nmap <localLeader>i :s@\(.*\)@_\1_@ <Enter> :nohlsearch <Enter>
-autocmd FileType markdown :vmap <localLeader>i :s@\%V\(.*\)\%V@_\1_@ <Enter>
-autocmd FileType markdown :nmap <localLeader>b :s@\(.*\)@**\1**@ <Enter> :nohlsearch <Enter>
-autocmd FileType markdown :vmap <localLeader>b :s@\%V\(.*\)\%V@**\1**@ <Enter>
-autocmd FileType markdown :nmap <localLeader>` :s@\(.*\)@```\r\1\r```@ <Enter> :nohlsearch <Enter>
-autocmd FileType markdown :vmap <localLeader>` :\<,\>s@@`\1`@<Enter>
+autocmd FileType markdown :nmap <localLeader>1 :s@^@# @ <CR> :nohlsearch <CR>
+autocmd FileType markdown :nmap <localLeader>2 :s@^@## @ <CR> :nohlsearch <CR>
+autocmd FileType markdown :nmap <localLeader>3 :s@^@### @ <CR> :nohlsearch <CR>
+autocmd FileType markdown :nmap <localLeader>4 :s@^@#### @ <CR> :nohlsearch <CR>
+autocmd FileType markdown :nmap <localLeader>5 :s@^@##### @ <CR> :nohlsearch <CR>
+autocmd FileType markdown :nmap <localLeader>6 :s@^@###### @ <CR> :nohlsearch <CR>
+autocmd FileType markdown :nmap <localLeader>i :s@\(.*\)@_\1_@ <CR> :nohlsearch <CR>
+autocmd FileType markdown :vmap <localLeader>i :s@\%V\(.*\)\%V@_\1_@ <CR>
+autocmd FileType markdown :nmap <localLeader>b :s@\(.*\)@**\1**@ <CR> :nohlsearch <CR>
+autocmd FileType markdown :vmap <localLeader>b :s@\%V\(.*\)\%V@**\1**,,@<CR>/,,<CR><DEL><DEL> :nohlsearch<CR>
+autocmd FileType markdown :nmap <localLeader>` :s@\(.*\)@```\r\1\r```@ <CR> :nohlsearch <CR>
+autocmd FileType markdown :vmap <localLeader>` :\<,\>s@@`\1`@<CR>
 autocmd FileType markdown :nnoremap <localLeader>- :s/^\s*/- /<CR> :nohlsearch<CR>
 autocmd FileType markdown :vnoremap <localLeader>- :s/^\s*/- /<CR> :nohlsearch<CR>
 autocmd FileType markdown :nmap <localLeader>> :s/^\s*/> / <CR> :nohlsearch <CR>
@@ -436,9 +435,9 @@ autocmd FileType markdown :map  <localLeader>gi "ip^<C-a>"iyy^
 autocmd FileType markdown :nmap <localLeader>ts o<CR>**Источник**:<Space>
 autocmd FileType markdown :nmap <localLeader>tt /^# <CR>$a<CR><CR>[[toc]]<CR><ESC> :nohlsearch<CR>
 autocmd FileType markdown :nmap <localLeader>tn ggi# <C-R>%<BS><BS><CR><CR><ESC>
-autocmd FileType markdown :vmap <localLeader>` :s@\%V\(.*\)\%V@`\1`@ <Enter> :nohlsearch <Enter>
-autocmd FileType markdown :vmap <localLeader>[ :s@\%V\(.*\)\%V@[\1](!!)@<CR><ESC>/!!<Enter><DEL><DEL> :nohlsearch <Enter> i
-autocmd FileType markdown :nmap <localLeader>y ^i<CR>**Видео**:<CR><CR>iframe width="740" height="420" src="http://www.youtube.com/embed/" frameborder="0" allowfullscreen allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"></iframe><CR><ESC><UP>^/embed<CR>/\/<CR> :nohlsearch <CR> a
+autocmd FileType markdown :vmap <localLeader>` :s@\%V\(.*\)\%V@`\1`@ <CR> :nohlsearch <CR>
+autocmd FileType markdown :vmap <localLeader>[ :s@\%V\(.*\)\%V@[\1](!!)@<CR><ESC>/!!<CR><DEL><DEL> :nohlsearch <CR> i
+autocmd FileType markdown :nmap <localLeader>y ^i<CR>**Видео**:<CR>div><CR>iframe width="740" height="420" src="http://www.youtube.com/embed/" frameborder="0" allowfullscreen allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"></iframe><CR></div><ESC><UP><UP>^/embed<CR>/\/<CR> :nohlsearch <CR> a
 " autocmd FileType markdown :nmap <localLeader>y ^i**Видео**:<CR><CR><div class="youtube" id="" style="width: 560px; height: 315px;"></div><CR><ESC>
 autocmd FileType markdown let g:airline#extensions#whitespace#enabled = 0
 " }}}

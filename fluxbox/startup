@@ -8,9 +8,9 @@ fbpanel &
 numlockx &
 unclutter -idle 2 &
 parcellite &
-udiskie -a -n -t &
+udiskie -ans2q &
 xbindkeys &
-fbsetbg -a ~/.fluxbox/backgrounds/1200x1024/default.jpg &
+# MON=$(date +%m); fbsetbg -a ~/Documents/Pictures/army2019/army2019_calendar_$M.jpg &; unset $MON
 # idesk &
 # conky &
 # udiskie --tray &

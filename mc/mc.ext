@@ -668,9 +668,9 @@ regex/\.([dD][jJ][vV][uU])$
 
 # fb2
 regex/\.(fb2|FB2)$
-	Open=if [ x$DISPLAY = x ]; then fbless %f; else (ob %f &>/dev/null &); fi
+	Open=if [ x$DISPLAY = x ]; then FBReader "%f"; else (ob %f &>/dev/null &); fi
 regex/\.(fb2|FB2).zip$
-	Open=if [ x$DISPLAY = x ]; then fbless %f; else (ob %f &>/dev/null &); fi
+	Open=if [ x$DISPLAY = x ]; then FBReader "%f"; else (ob %f &>/dev/null &); fi
 regex/i/\.(epub|mobi)$
 	Open=/usr/lib/mc/ext.d/doc.sh open epub
 	View=%view{ascii} /usr/lib/mc/ext.d/doc.sh view epub
