@@ -471,7 +471,8 @@ regex/\.([wW][aA][wW]22)$
 
 regex/\.([mM][pP]3)$
 	#Open=if [ "$DISPLAY" = "" ]; then mpg123 -C %f; else (xmms %f >/dev/null 2>&1 &); fi
-	Open= mpg123 -C %f
+	# Open= mpg123 -C %f
+	Open= cvlc %f
 	#View=%view{ascii} mpg123 -vtn1 %f 2>&1 | sed -n '/^Title/,/^Comment/p;/^MPEG/,/^Audio/p'
         Include=sound
 

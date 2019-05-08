@@ -1,5 +1,6 @@
 .*
 !.gitignore
+!.emacs
 *~
 *.old
 *.bak

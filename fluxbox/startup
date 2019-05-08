@@ -1,6 +1,6 @@
 xmodmap "/home/serg/.Xmodmap" &
 xrdb ~/.Xresources
-urxvtd -q -o -f
+# urxvtd -q -o -f
 play ~/.fluxbox/sounds/ubuntu/stereo/desktop-login.ogg > /dev/null 2>&1 &
 # lxpanel &
 fbpanel &
@@ -8,7 +8,7 @@ fbpanel &
 numlockx &
 unclutter -idle 2 &
 parcellite &
-udiskie -ans2q &
+udiskie -Ans2PFq &
 xbindkeys &
 # MON=$(date +%m); fbsetbg -a ~/Documents/Pictures/army2019/army2019_calendar_$M.jpg &; unset $MON
 # idesk &
@@ -20,5 +20,6 @@ firefox &
 # KeeWeb &
 # goldendict &
 # sdcv &
-urxvtc &
+# urxvtc &
+lxterminal &
 exec /usr/bin/fluxbox -log "/home/serg/.fluxbox/log"

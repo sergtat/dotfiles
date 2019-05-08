@@ -74,6 +74,7 @@ if dein#load_state(expand('~/.config/nvim/dein'))
   call dein#add ('Keithbsmiley/investigate.vim')
   call dein#add ('triglav/vim-visual-increment')
   call dein#add ('AndrewRadev/switch.vim')
+  call dein#add ('haya14busa/vim-gtrans', {'on_cmd': 'Gtrans'})
   call dein#add ('sergtat/vim-numbered')
   call dein#add ('sergtat/increment.vim')
   call dein#add ('godlygeek/tabular')
@@ -102,23 +103,20 @@ if dein#check_install()
 endif
 " }}}
 " PLUGINS Setup {{{
+" NERDTree {{{
+let g:NERDTreeChDirMode=2
+let g:NERDTreeIgnore=['\.rbc$', '\~$', '\.pyc$', '\.db$', '\.sqlite$', '__pycache__']
+let g:NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$', '\.bak$', '\~$']
+let g:NERDTreeShowBookmarks=1
+let g:nerdtree_tabs_focus_on_files=1
+let g:NERDTreeMapOpenInTabSilent = '<RightMouse>'
+let g:NERDTreeWinSize = 50
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.db,*.sqlite
+" }}}
 " deoplete {{{
 let g:deoplete#enable_at_startup = 1
 " }}}
 " neosnippet {{{
-" Plugin key-mappings.
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>     <Plug>(neosnippet_expand_target)
-
-" SuperTab like snippets behavior.
-imap <expr><TAB>
-  \ pumvisible() ? "\<C-n>" :
-  \ neosnippet#expandable_or_jumpable() ?
-  \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-  \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-
 " For conceal markers.
 if has('conceal')
   set conceallevel=2 concealcursor=niv
@@ -136,19 +134,25 @@ let g:airline#extensions#tabline#enabled = 1
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
-let g:airline#extensions#tabline#left_sep = ''
-let g:airline#extensions#tabline#left_alt_sep = '|'
-" let g:airline_left_sep = ''
-" let g:airline_left_alt_sep = '>'
-let g:airline#extensions#tabline#right_sep = ''
-let g:airline#extensions#tabline#right_alt_sep = '|'
-" let g:airline_right_sep = ''
-" let g:airline_right_alt_sep = '<'
+" powerline symbols
+let g:airline_left_alt_sep = ''
+let g:airline_left_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_right_sep = ''
 let g:airline_symbols.branch = ''
-let g:airline_symbols.readonly = ''
-let g:airline_symbols.linenr = ''
+let g:airline_symbols.crypt = '🔒'
+let g:airline_symbols.linenr = '☰'
+let g:airline_symbols.maxlinenr = ''
+let g:airline_symbols.notexists = '∄'
 let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.spell = 'Ꞩ'
 let g:airline_symbols.whitespace = 'Ξ'
+
+" let g:airline#extensions#tabline#left_sep = ''
+" let g:airline#extensions#tabline#left_alt_sep = '|'
+" let g:airline#extensions#tabline#right_sep = ''
+" let g:airline#extensions#tabline#right_alt_sep = '|'
 " }}}
 " vim-xkbswitch {{{
 if has("gui_running")
@@ -179,11 +183,8 @@ let g:startify_bookmarks = [ {'v': '~/.config/nvim/init.vim'}, {'z': '~/.zshrc'}
 " auto-pairs {{{
 let g:AutoPairsFlyMode = 1
 " }}}
-" investigate.vim {{{
-nnoremap <F1> :call investigate#Investigate()<CR>
-" }}}
 " tpope/vim-commentary {{{
-set commentstring=#%s
+set commentstring="/*%s*/"
 " }}}
 " switch yes/no {{{
 let g:switch_mapping = "-"
@@ -238,9 +239,7 @@ else
     set background=dark
 endif
 endfunction
-command! Togbg call ToggleBackground()
-nnoremap <Leader>bg :Togbg<CR>
-vnoremap <Esc><Leader>bg :Togbg<CR>
+command! ToggleBG call ToggleBackground()
 " }}}
 " Language & keymap {{{
 if &encoding ==# 'latin1' && has('gui_running')
@@ -265,11 +264,6 @@ set ttimeout
 set ttimeoutlen=100
 set incsearch
 set ignorecase
-
-" Use <C-L> to clear the highlighting of :set hlsearch.
-if maparg('<C-L>', 'n') ==# ''
-  nnoremap <silent> <C-L> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
-endif
 
 set linebreak
 set showbreak='\'
@@ -459,7 +453,6 @@ return ""
 endfunction
 " }}}
 " Show hidden chars {{{
-nmap <Leader>eh :set list!<CR>
 set listchars=tab:→\ ,eol:↵,trail:·,extends:↷,precedes:↶
 " }}}
 " Maps {{{
@@ -468,12 +461,27 @@ map  <F2> :w<CR>
 map! <F2> <Esc>:w<CR>
 map  <F3> :q<CR>
 map! <F3> <Esc>:q<CR>
-nmap <F8> :TagbarToggle<CR>
-map <F9> :NERDTreeToggle<CR>
+nnoremap <silent> <F8> :NERDTreeFind<CR>
+nnoremap <silent> <F9> :NERDTreeToggle<CR>
 vmap < <gv
 vmap > >gv
-nmap <Enter> i<CR><Esc>
-nmap <Space> i<Space><Esc>
+nnoremap <Enter> i<CR><Esc>
+nnoremap <Space> i<Space><Esc>
+nnoremap <silent>,<Space> :nohlsearch<CR>
+
+" Show match string at the center of screen {{{
+nnoremap n nzzzv
+nnoremap N Nzzzv
+nnoremap <silent>* *zzzv
+" }}}
+" Show hidden chars {{{
+nmap <Leader>eh :set list!<CR>
+" }}}
+" Use <C-L> to clear the highlighting of :set hlsearch {{{
+if maparg('<C-L>', 'n') ==# ''
+  nnoremap <silent> <C-L> :nohlsearch<CR>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
+endif
+" }}}
 " Tabs {{{
 map <C-t> :tabnew<CR>
 if &term == "linux"
@@ -484,6 +492,31 @@ nnoremap Oc gt
 nnoremap Od gT
 endif
 " }}}
+" Colorscheme {{{
+nnoremap <Leader>bg :ToggleBG<CR>
+vnoremap <Esc><Leader>bg :ToggleBG<CR>
+" }}}
+" Gtranslate {{{
+nnoremap T :Gtrans*<CR>
+vnoremap R <Plug>(operator-gtrans-buffer)*
+" }}}
+" Neosnippet. Plugin key-mappings. {{{
+imap <C-k> <Plug>(neosnippet_expand_or_jump)
+smap <C-k> <Plug>(neosnippet_expand_or_jump)
+xmap <C-k> <Plug>(neosnippet_expand_target)
+
+" Neosnippet. SuperTab like snippets behavior.
+imap <expr><TAB>
+  \ pumvisible() ? "\<C-n>" :
+  \ neosnippet#expandable_or_jumpable() ?
+  \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+  \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+" }}}
+" investigate.vim {{{
+nnoremap <F1> :call investigate#Investigate()<CR>
+" }}}
+
 " }}}
 " Edit & autoload configuration when this file changes ($MYIMRC) {{{
 map <Leader>vr :tabnew $MYVIMRC<CR>
@@ -569,6 +602,13 @@ iab lorem Лорем ипсум долор сит амет, те вих молл
 " :'<,'>s/^\s*\zs/\=(line('.') - line("'<")+1).'. '
 " Which is easy to put in a command:
 " command! -nargs=0 -range=% Number <line1>,<line2>s/^\s*\zs/\=(line('.') - <line1>+1).'. '
+"
+" snippet box "Box"
+" `!p snip.rv = '┌' + '─' * (len(t[1]) + 2) + '┐'`
+" │ $1 │
+" `!p snip.rv = '└' + '─' * (len(t[1]) + 2) + '┘'`
+" $0
+" endsnippet
 " }}}
 
 " vim:foldmethod=marker
