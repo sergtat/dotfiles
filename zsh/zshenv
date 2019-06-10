@@ -28,6 +28,10 @@ export SVN_EDITOR="nvim"
 [ -z "$XDG_CACHE_HOME" ] && export XDG_CACHE_HOME="$HOME/.cache"
 [ -z "$XDG_RUNTIME_DIR" ] && export XDG_RUNTIME_DIR="/run/user/$(id -u)"
 
+#---- NeoVim ---#
+export PYTHON_HOST_PROG="/usr/bin/python2"
+export PYTHON3_HOST_PROG="/usr/bin/python3"
+
 #if [ $(ls $HOME/.ssh/id_*.pub) ]
 #then
   #for i in $HOME/.ssh/id_*.pub

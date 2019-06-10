@@ -9,6 +9,7 @@ numlockx &
 unclutter -idle 2 &
 parcellite &
 udiskie -Ans2PFq &
+connman-ui-gtk &
 xbindkeys &
 # MON=$(date +%m); fbsetbg -a ~/Documents/Pictures/army2019/army2019_calendar_$M.jpg &; unset $MON
 # idesk &

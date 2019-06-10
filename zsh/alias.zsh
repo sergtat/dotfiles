@@ -31,6 +31,7 @@ alias zshrc="nvim ~/.zshrc"
 alias zrc="nvim ~/.zshrc"
 alias lastlog='lastlog|grep -v \*'
 alias dmesg='dmesg --color'
+alias emacs='emacsclient -c'
 # grep
 alias egrep='grep -E'
 alias fgrep='grep -F'
