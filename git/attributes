@@ -43,6 +43,7 @@
 *.gif   binary -text diff
 *.gz    binary -text diff
 *.ico   binary -text diff
+*.jar   binary -text diff
 *.jpeg  binary -text diff
 *.jpg   binary -text diff
 *.key   binary -text diff

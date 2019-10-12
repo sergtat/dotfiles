@@ -53,7 +53,7 @@ ZSH_CUSTOM="$HOME/repo/dotfiles/zsh"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 
-plugins=(adb bgnotify colored-man-pages colorize copybuffer copydir copyfile dotenv git npm rsync tmux yarn z)
+plugins=(adb bgnotify colored-man-pages colorize copybuffer copydir copyfile dotenv git npm rsync safe-paste tmux yarn z)
 
 # plugins=(adb coffee cp encode64 git jsontools node npm sudo tmuxinator urltools vi-mode)
 # plugins=(git github gitfast git-flow vundle vi-mode sprunde screen redis-cli npm node extract encode64 urltools history-substring-search)
@@ -157,3 +157,5 @@ powerline-daemon -q
 # vi-mode - enable handy Vim mode in the terminal.
 # vundle - bundle manager for Vim.
 # web-search - search from the terminal. Aliases: bing, google, yahoo,
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

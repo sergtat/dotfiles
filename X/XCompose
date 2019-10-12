@@ -80,7 +80,7 @@
 <Multi_key> <s> <s>                    : "§" U00A7 # SECTION SIGN
 <Multi_key> <less> <less>              : "«" U00AB # LEFT-POINTING DOUBLE ANGLE QUOTATION MARK
 <Multi_key> <greater> <greater>        : "»" U00BB # RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK
-<Multi_key> <less> <greater>           : "«»"        # LEFT-RIGHT PAIR OF POINTING DOUBLE ANGLE QUOTATION MARK
+<Multi_key> <less> <greater>           : "«»"      # LEFT-RIGHT PAIR OF POINTING DOUBLE ANGLE QUOTATION MARK
 <Multi_key> <period> <period> <period> : "…" U2026 # HORIZONTAL ELLIPSIS
 
 <Multi_key> <minus> <minus> <period>   : "–" U2013 # EN DASH             : for numbers : 1–2

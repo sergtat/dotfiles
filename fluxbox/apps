@@ -2,7 +2,7 @@
   [Position]	(CENTER)	{0 0}
   [Layer]	{2}
 [end]
-[app] (name=Navigator) (class=Firefox) (role=browser)
+[app] (role=browser)
   [Workspace]	{1}
   [Dimensions]	{44% 48%}
   [Position]	(UPPERLEFT)	{0% 0%}

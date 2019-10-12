@@ -2,13 +2,13 @@
   name = Serg Tatarnikov (sergtat)
   email = sergeytat@gmail.com
 [core]
-  autocrlf = input
   safecrlf = true
   eol = lf
   editor = nvim
   ;excludesfile = ~/.config/git/ignore
   quotepath = false
   whitespace = indent-with-non-tab,trailing-space,cr-at-eol
+	autocrlf = input
 [apply]
   whitespace = fix
 [status]

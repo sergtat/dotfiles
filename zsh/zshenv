@@ -13,9 +13,11 @@ export MAILPATH="$HOME/.mail/new?'You have new mail!'"
 export MAILDIR="$HOME/.mail"
 export DE='generic'
 export LESS='-RQM'
-export BROWSER='firefox'
+# export BROWSER='firefox'
+export BROWSER='chromium'
 export GPGKEY="94021380C07675DE"
 export PATH="$HOME/bin:/usr/local/bin:$PATH"
+export SYSTEMD_LESS=FRXMK
 
 #---- SVN -----------------#
 export SVN_EDITOR="nvim"

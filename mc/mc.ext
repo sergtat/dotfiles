@@ -593,7 +593,7 @@ regex/\.[eE][pP][uU][bB]()$
 # html
 regex/i/\.html?$
   
-  Open=/usr/libexec/mc/ext.d/web.sh open html
+  Open=/usr/lib/mc/ext.d/web.sh open html
         # View=%view{ascii} links -dump %f 2>/dev/null
         # View=%view{ascii} w3m -dump %f 2>/dev/null
         View=%view{ascii} lynx -dump -force_html %f
